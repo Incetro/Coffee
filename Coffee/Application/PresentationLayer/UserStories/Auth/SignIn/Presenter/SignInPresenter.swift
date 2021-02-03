@@ -53,7 +53,6 @@ extension SignInPresenter: SignInInteractorOutput {
 
     func signUpRequired(withPhone phone: String) {
         view?.stopIndication()
-        router?.openSignUp(phone: phone)
     }
 
     func phoneNumberIncorrect(_ phone: String) {

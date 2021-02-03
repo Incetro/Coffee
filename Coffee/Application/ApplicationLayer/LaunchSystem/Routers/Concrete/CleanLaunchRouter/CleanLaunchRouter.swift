@@ -53,7 +53,8 @@ final class CleanLaunchRouter {
 
     /// Initialize window and open initially screen
     func openInitialScreen(withRequest request: LaunchRequest) {
-        let rootViewController = ViewController()
+        let rootViewController = navigationControllerFactory
+            .navigationController(withRootViewController: SignInModule.instantiate())
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
