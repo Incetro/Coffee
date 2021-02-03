@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  Coffee
+
+  Created by incetro on 01/02/2020.
+  Copyright © 2020 Incetro Inc. All rights reserved.
+*/
+
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Необходимо для показа Вашего местоположения на карте и участия в гонках";
+"NSLocationWhenInUseUsageDescription" = "Необходимо для показа Вашего местоположения на карте и участия в гонках";
+"NSLocationUsageDescription" = "Необходимо для показа Вашего местоположения на карте и участия в гонках";
+"NSLocationAlwaysUsageDescription" = "Необходимо для показа Вашего местоположения на карте и участия в гонках";
+
+"NSCameraUsageDescription" = "Доступ к камере необходим для загрузки фото в Ваш профиль";
+"NSPhotoLibraryUsageDescription" = "Доступ к галерее необходим для загрузки фото в Ваш профиль";
