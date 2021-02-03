@@ -20,6 +20,7 @@ target 'Coffee' do
   pod "RealmSwift"
   pod "HTTPTransport"
   pod "ObjectMapper"
+  pod 'InputMask'
 
 end
 
