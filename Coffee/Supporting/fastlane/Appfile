@@ -1,0 +1,12 @@
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
+
+for_platform :ios do
+    apple_id 'incetro@ya.ru'
+    for_lane :staging do
+        app_identifier 'com.incetro.the-run.staging'
+    end
+    for_lane :release do
+        app_identifier 'com.incetro.the-run.prod'
+    end
+end
