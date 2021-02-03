@@ -768,10 +768,10 @@ enum L10n {
       }
     }
 
-    enum Coffee {
+    enum TheRun {
       /// Coffee
       static var name: String {
-        L10n.tr("Localizable", "markers.appname.name")
+        L10n.tr("Localizable", "markers.the-run.name")
       }
     }
   }
