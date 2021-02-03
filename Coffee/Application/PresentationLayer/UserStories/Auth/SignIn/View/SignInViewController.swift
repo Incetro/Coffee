@@ -54,6 +54,8 @@ final class SignInViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        localizer.add(localizable: self)
+        designer.add(designable: self)
         output?.didTriggerViewReadyEvent()
     }
 
@@ -81,16 +83,20 @@ extension SignInViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.topAnchor),
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: inset * 4),
             stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: inset),
-            stackView.rightAnchor.constraint(equalTo: view.leftAnchor, constant: -inset)
+            stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -inset)
         ])
     }
 
     private func setupLabels() {
+        welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(welcomeLabel)
         stackView.setCustomSpacing(LayoutConstants.welcomLabelSpacing, after: welcomeLabel)
+        NSLayoutConstraint.activate([
+            welcomeLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.welcomeLabelHeight)
+        ])
     }
 
     private func setupTextFields() {
@@ -106,7 +112,7 @@ extension SignInViewController {
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(signInButton)
         NSLayoutConstraint.activate([
-            signInButton.heightAnchor.constraint(equalToConstant: LayoutConstants.signInButtondHeight)
+            signInButton.heightAnchor.constraint(equalToConstant: LayoutConstants.signInButtonHeight)
         ])
         signInButton.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
     }
@@ -164,6 +170,21 @@ extension SignInViewController: MaskedTextFieldDelegateListener {
     }
 }
 
+// MARK: - Designable
+
+extension SignInViewController: Designable {
+
+    func design(appearance: Appearance) {
+        view.backgroundColor = .white
+        activityIndicator.tintColor = appearance.activityIndicatorStyle
+        welcomeLabel.textColor = .black
+        loginTextField.backgroundColor = .lightGray
+        loginTextField.textColor = .red
+        signInButton.backgroundColor = .red
+        signInButton.setTitleColor(.black, for: .normal)
+    }
+}
+
 // MARK: - Localizable
 
 extension SignInViewController: Localizable {
@@ -181,7 +202,8 @@ private enum LayoutConstants {
     static let loginTextFieldHeight: CGFloat = 50
     static let loginTextFieldLeftSpacing: CGFloat = 16
     static let loginTextFieldRightSpacing: CGFloat = 16
-    static let signInButtondHeight: CGFloat = 50
+    static let signInButtonHeight: CGFloat = 50
+    static let welcomeLabelHeight: CGFloat = 50
 
     static let contentInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
 

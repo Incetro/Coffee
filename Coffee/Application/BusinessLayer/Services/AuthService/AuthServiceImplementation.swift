@@ -8,7 +8,7 @@
 
 // MARK: - AuthServiceImplementation
 
-final class AuthServiceImplementation {
+final class AuthServiceImplementation: Service {
 
     // MARK: - Properties
 
@@ -34,37 +34,37 @@ extension AuthServiceImplementation: AuthService {
 
     func check(phone: String) -> ServiceCall<Bool> {
         createCall { () -> Result<Bool, Error> in
-            return .success(true)
+            .success(true)
         }
     }
 
     func refreshAccessToken() -> ServiceCall<Void> {
-        createCall { () -> Result<Bool, Error> in
-            return .success(())
+        createCall { () -> Result<Void, Error> in
+            .success(())
         }
     }
 
     func requestCode(withPhone phone: String) -> ServiceCall<Void> {
-        createCall { () -> Result<Bool, Error> in
-            return .success(())
+        createCall { () -> Result<Void, Error> in
+            .success(())
         }
     }
 
     func signIn(withPassword password: String, phone: String) -> ServiceCall<Void> {
-        createCall { () -> Result<Bool, Error> in
-            return .success(())
+        createCall { () -> Result<Void, Error> in
+            .success(())
         }
     }
 
     func signUp(_ object: SignUpPlainObject, withCode code: String) -> ServiceCall<Void> {
-        createCall { () -> Result<Bool, Error> in
-            return .success(())
+        createCall { () -> Result<Void, Error> in
+            .success(())
         }
     }
 
     func change(password: String) -> ServiceCall<Void> {
-        createCall { () -> Result<Bool, Error> in
-            return .success(())
+        createCall { () -> Result<Void, Error> in
+            .success(())
         }
     }
 }
