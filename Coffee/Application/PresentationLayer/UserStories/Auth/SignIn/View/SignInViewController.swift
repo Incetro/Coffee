@@ -100,7 +100,6 @@ extension SignInViewController {
         NSLayoutConstraint.activate([
             loginTextField.heightAnchor.constraint(equalToConstant: LayoutConstants.loginTextFieldHeight)
         ])
-
     }
 
     private func setupSignInButton() {

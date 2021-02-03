@@ -28,6 +28,21 @@ final class SignInModuleAssembly: CollectableAssembly {
 
     func assemble(inContainer container: Container) {
 
+        container.register(SignInViewController.self) { resolver in
+            let controller = SignInViewController()
+            controller.output = resolver.resolve(SignInViewOutput.self, argument: controller as SignInViewInput)
+            return controller
+        }
+
+        container.register(SignInRouterInput.self) { (resolver, transitionHandler: TransitionHandler) in
+            let navigationControllerFactory = resolver.resolve(NavigationControllerFactory.self).unwrap()
+            let router = SignInRouter(
+                navigationControllerFactory: navigationControllerFactory,
+                transitionHandler: transitionHandler
+            )
+            return router
+        }
+
         container.register(SignInViewOutput.self) { (_, view: SignInViewInput) in
             let presenter = SignInPresenter()
             presenter.view = view

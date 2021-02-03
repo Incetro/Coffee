@@ -15,8 +15,4 @@ protocol SignInRouterInput: RouterInput {
     /// Open CodeVerification module
     /// - Parameter data: data for verifying
     func openCodeVerification(_ data: CodeVerificationModule.Data)
-
-    /// Open SignUp module
-    /// - Parameter phone: user's phone number
-    func openSignUp(phone: String)
 }

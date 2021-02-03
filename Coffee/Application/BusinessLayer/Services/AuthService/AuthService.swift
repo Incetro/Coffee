@@ -25,10 +25,6 @@ protocol AuthService {
     /// - Parameter phone: some phone
     func check(phone: String) -> ServiceCall<Bool>
 
-    /// Checks whether such a nickname exists
-    /// - Parameter nickname: some nickname
-    func check(nickname: String) -> ServiceCall<Bool>
-
     /// Refresh current user token
     func refreshAccessToken() -> ServiceCall<Void>
 
@@ -52,21 +48,4 @@ protocol AuthService {
     /// - Parameters:
     ///   - password: new password
     func change(password: String) -> ServiceCall<Void>
-
-    /// Change user password with sms code
-    /// - Parameters:
-    ///   - password: new password
-    ///   - code: sms code
-    ///   - phone: user's phone number
-    func change(
-        password: String,
-        withCode code: String,
-        phone: String
-    ) -> ServiceCall<Void>
-
-    /// Obtain password status
-    func passwordStatus(username: String) -> ServiceCall<Bool>
-
-    /// Log out
-    func signOut() -> ServiceCall<Void>
 }

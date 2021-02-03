@@ -31,3 +31,12 @@ final class SignInRouter: Router {
         super.init(transitionHandler: transitionHandler)
     }
 }
+extension SignInRouter: SignInRouterInput {
+
+    func openCodeVerification(_ data: CodeVerificationModule.Data) {
+        transitionHandler
+            .openModule(CodeVerificationModule.self, withData: data)
+            .to(.navigation(style: .push))
+            .perform()
+    }
+}

@@ -21,5 +21,10 @@ final class BusinessComponentsAssembly: CollectableAssembly {
             let defaults = resolver.resolve(UserDefaults.self).unwrap()
             return LocalizerImplementation(defaults: defaults)
         }.inObjectScope(.container)
+
+        container.register(AuthService.self) { resolver in
+            let notifier = resolver.resolve(Notifier.self).unwrap()
+            return AuthServiceImplementation(notifier: notifier)
+        }.inObjectScope(.container)
     }
 }
