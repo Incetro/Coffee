@@ -1367,7 +1367,7 @@ enum L10n {
   }
 
   enum SignIn {
-    /// Пожалуйста, введите свой номер телефона
+    /// Пожалуйста, введите свою почту
     static var description: String {
       L10n.tr("Localizable", "sign-in.description")
     }
@@ -1381,14 +1381,14 @@ enum L10n {
     }
 
     enum Errors {
-      /// Некорректный номер телефона. Попробуйте ещё раз.
+      /// Некорректная почта. Попробуйте ещё раз.
       static var invalidPhoneNumber: String {
         L10n.tr("Localizable", "sign-in.errors.invalid-phone-number")
       }
     }
 
     enum Placeholders {
-      /// Номер телефона
+      /// Адрес почты
       static var login: String {
         L10n.tr("Localizable", "sign-in.placeholders.login")
       }

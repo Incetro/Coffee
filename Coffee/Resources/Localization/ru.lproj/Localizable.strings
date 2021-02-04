@@ -49,10 +49,10 @@
 "themes.system-change" = "Системная тема";
 
 "sign-in.sign-in-button" = "Продолжить";
-"sign-in.placeholders.login" = "Номер телефона";
+"sign-in.placeholders.login" = "Адрес почты";
 "sign-in.welcome-title" = "Добро пожаловать в\nCoffee!";
-"sign-in.description" = "Пожалуйста, введите свой номер телефона";
-"sign-in.errors.invalid-phone-number" = "Некорректный номер телефона. Попробуйте ещё раз.";
+"sign-in.description" = "Пожалуйста, введите свою почту";
+"sign-in.errors.invalid-phone-number" = "Некорректная почта. Попробуйте ещё раз.";
 
 "sign-up.title" = "Регистрация";
 "sign-up.description" = "Осталось всего несколько шагов.";

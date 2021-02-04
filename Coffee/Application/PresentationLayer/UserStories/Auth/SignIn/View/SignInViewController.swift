@@ -21,11 +21,29 @@ final class SignInViewController: ViewController {
     /// MaskedTextFieldDelegate instance
     private lazy var loginTextFieldListener = MaskedTextFieldDelegate().then {
         $0.delegate = self
+        $0.customNotations = [
+            Notation(
+                character: "D",
+                characterSet: CharacterSet(charactersIn: "."),
+                isOptional: false
+            ),
+            Notation(
+                character: "d",
+                characterSet: CharacterSet(charactersIn: "."),
+                isOptional: true
+            ),
+            Notation(
+                character: "@",
+                characterSet: CharacterSet(charactersIn: "@"),
+                isOptional: false
+            )
+        ]
+        $0.affineFormats = ["[aaaaaaaaaa][d][aaaaaaaaaa][@][aaaaaaaaaa][d][aaaaaaaaaa][D][aaaaaaaaaa]"]
     }
 
     /// Phone text field
     private lazy var loginTextField = UITextField().then {
-        $0.keyboardType = .phonePad
+        $0.keyboardType = .emailAddress
         $0.delegate = loginTextFieldListener
     }
 
@@ -62,6 +80,11 @@ final class SignInViewController: ViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         loginTextField.becomeFirstResponder()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        signInButton.smoothlyRoundCourners(radius: LayoutConstants.signInButtonHeight / 2)
     }
 
     // MARK: - Private
@@ -117,8 +140,8 @@ extension SignInViewController {
 
     @objc private func didTapSignInButton() {
         guard !activityIndicator.isAnimating else { return }
-        guard let phone = loginTextField.text else { return }
-        output?.didTapSignInButton(phone: phone)
+        guard let mail = loginTextField.text else { return }
+        output?.didTapSignInButton(mail: mail)
     }
 }
 
@@ -177,9 +200,9 @@ extension SignInViewController: Designable {
         activityIndicator.tintColor = appearance.activityIndicatorStyle
         welcomeLabel.textColor = .black
         loginTextField.backgroundColor = .lightGray
-        loginTextField.textColor = .red
-        signInButton.backgroundColor = .red
-        signInButton.setTitleColor(.black, for: .normal)
+        loginTextField.textColor = .black
+        signInButton.backgroundColor = .blue
+        signInButton.setTitleColor(.white, for: .normal)
     }
 }
 
