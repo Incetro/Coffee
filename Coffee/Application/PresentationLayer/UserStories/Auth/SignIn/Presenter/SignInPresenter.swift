@@ -32,9 +32,9 @@ extension SignInPresenter: SignInViewOutput {
         view?.setupInitialState()
     }
 
-    func didTapSignInButton(phone: String) {
+    func didTapSignInButton(mail: String) {
         view?.startIndication()
-        interactor?.checkPhone(phone)
+        interactor?.checkPhone(mail)
     }
 }
 

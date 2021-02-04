@@ -49,10 +49,10 @@
 "themes.system-change" = "System change";
 
 "sign-in.sign-in-button" = "Continue";
-"sign-in.placeholders.login" = "Phone number";
+"sign-in.placeholders.login" = "E-mail adress";
 "sign-in.welcome-title" = "Welcome to\nCoffee!";
 "sign-in.description" = "Please confirm your country code and enter your phone number.";
-"sign-in.errors.invalid-phone-number" = "Invalid phone number. Please try again.";
+"sign-in.errors.invalid-phone-number" = "Invalid e-mail adress. Please try again.";
 
 "sign-up.title" = "Sign Up";
 "sign-up.description" = "You’re only a few steps away from joining Coffee.";
