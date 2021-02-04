@@ -80,11 +80,12 @@ extension SignInViewController {
 
     private func setupStackView() {
         let inset = LayoutConstants.contentInsets.left
+        let heightOfStack = LayoutConstants.welcomeLabelHeight + LayoutConstants.loginTextFieldHeight + LayoutConstants.signInButtonHeight
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: inset * 4),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            stackView.heightAnchor.constraint(equalToConstant: heightOfStack + inset * 2),
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: inset),
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -inset)
         ])
@@ -111,9 +112,6 @@ extension SignInViewController {
     private func setupSignInButton() {
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(signInButton)
-        NSLayoutConstraint.activate([
-            signInButton.heightAnchor.constraint(equalToConstant: LayoutConstants.signInButtonHeight)
-        ])
         signInButton.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
     }
 
@@ -208,7 +206,7 @@ private enum LayoutConstants {
     static let contentInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
 
     static var welcomLabelSpacing: CGFloat {
-        49
+        32
     }
 
     static var loginTextFieldSpacing: CGFloat {
