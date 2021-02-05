@@ -34,7 +34,7 @@ extension SignInPresenter: SignInViewOutput {
 
     func didTapSignInButton(mail: String) {
         view?.startIndication()
-//        interactor?.checkPhone(mail)
+//        interactor?.checkMail(mail)
     }
 }
 
@@ -47,15 +47,15 @@ extension SignInPresenter: SignInInteractorOutput {
         view?.showErrorMessage(errorMessage)
     }
 
-    func signInAllowed(withPhone phone: String) {
+    func signInAllowed(withMail mail: String) {
         view?.stopIndication()
     }
 
-    func signUpRequired(withPhone phone: String) {
+    func signUpRequired(withMail mail: String) {
         view?.stopIndication()
     }
 
-    func phoneNumberIncorrect(_ phone: String) {
+    func mailIncorrect(_ mail: String) {
         view?.stopIndication()
         view?.showErrorMessage(L10n.Alert.SignIn.InvalidPhoneNumber.message)
     }

@@ -32,7 +32,7 @@ final class AuthServiceImplementation: Service {
 
 extension AuthServiceImplementation: AuthService {
 
-    func check(phone: String) -> ServiceCall<Bool> {
+    func check(mail: String) -> ServiceCall<Bool> {
         createCall { () -> Result<Bool, Error> in
             .success(true)
         }
@@ -44,13 +44,13 @@ extension AuthServiceImplementation: AuthService {
         }
     }
 
-    func requestCode(withPhone phone: String) -> ServiceCall<Void> {
+    func requestCode(withMail mail: String) -> ServiceCall<Void> {
         createCall { () -> Result<Void, Error> in
             .success(())
         }
     }
 
-    func signIn(withPassword password: String, phone: String) -> ServiceCall<Void> {
+    func signIn(withPassword password: String, mail: String) -> ServiceCall<Void> {
         createCall { () -> Result<Void, Error> in
             .success(())
         }
