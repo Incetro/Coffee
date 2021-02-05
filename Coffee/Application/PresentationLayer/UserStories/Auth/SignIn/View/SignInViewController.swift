@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Foundation
 import InputMask
 
 // MARK: - SignInViewController
@@ -19,33 +18,13 @@ final class SignInViewController: ViewController {
     /// Progress indicator
     private lazy var activityIndicator = UIActivityIndicatorView()
 
-    /// MaskedTextFieldDelegate instance
-    private lazy var loginTextFieldListener = MaskedTextFieldDelegate().then {
-        $0.delegate = self
-        $0.customNotations = [
-            Notation(
-                character: "D",
-                characterSet: CharacterSet(charactersIn: "."),
-                isOptional: false
-            ),
-            Notation(
-                character: "d",
-                characterSet: CharacterSet(charactersIn: "."),
-                isOptional: true
-            ),
-            Notation(
-                character: "@",
-                characterSet: CharacterSet(charactersIn: "@"),
-                isOptional: false
-            )
-        ]
-        $0.affineFormats = ["[aaaaaaaaaa][d][aaaaaaaaaa][@][aaaaaaaaaa][d][aaaaaaaaaa][D][aaaaaaaaaa]"]
-    }
+    /// Auxiliary gesture recognizer for keyboard
+    private var keyboardDismissTapGuesture: UIGestureRecognizer?
 
     /// Phone text field
     private lazy var loginTextField = UITextField().then {
         $0.keyboardType = .emailAddress
-        $0.delegate = loginTextFieldListener
+        $0.delegate = self
         $0.addLeftSpacing(LayoutConstants.loginTextFieldLeftSpacing)
         let activityIndicatorWrapper = UIView(
             frame: .init(
@@ -124,7 +103,7 @@ final class SignInViewController: ViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         keyboardObserver.register(observer: self)
-//        loginTextField.becomeFirstResponder()
+        loginTextField.becomeFirstResponder()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -191,6 +170,7 @@ extension SignInViewController {
         NSLayoutConstraint.activate([
             loginTextField.heightAnchor.constraint(equalToConstant: LayoutConstants.loginTextFieldHeight)
         ])
+        loginTextField.addTarget(self, action: #selector(didEndEditingLoginTextField), for: .primaryActionTriggered)
     }
 
     private func setupSignInButton() {
@@ -200,12 +180,18 @@ extension SignInViewController {
             signInButton.heightAnchor.constraint(equalToConstant: LayoutConstants.signInButtonHeight)
         ])
         signInButton.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(didEndEditingLoginTextField), for: .touchUpInside)
+        signInButton(enabled: false)
     }
 
     @objc private func didTapSignInButton() {
         guard !activityIndicator.isAnimating else { return }
         guard let mail = loginTextField.text else { return }
         output?.didTapSignInButton(mail: mail)
+    }
+
+    @objc private func didEndEditingLoginTextField() {
+        loginTextField.resignFirstResponder()
     }
 }
 
@@ -234,25 +220,31 @@ extension SignInViewController: SignInViewInput {
     }
 }
 
+// MARK: - UITextFieldDelegate
+
+extension SignInViewController: UITextFieldDelegate {
+
+    internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        var count = (textField.text?.count ?? 0) + 1
+        if string == "" {
+            count -= 2
+        }
+        let complete = count > 4
+        signInButton(enabled: complete)
+        return true
+    }
+
+    internal func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        guard !activityIndicator.isAnimating else { return false }
+        return true
+    }
+}
+
 // MARK: - ViperViewOutputProvider
 
 extension SignInViewController: ViewOutputProvider {
     var viewOutput: ModuleInput? {
         output as? ModuleInput
-    }
-}
-
-// MARK: - MaskedTextFieldDelegateListener
-
-extension SignInViewController: MaskedTextFieldDelegateListener {
-
-    func textField(
-        _ textField: UITextField,
-        didFillMandatoryCharacters complete: Bool,
-        didExtractValue value: String
-    ) {
-        let complete = complete && textField.text?.isEmpty == false
-        signInButton(enabled: complete)
     }
 }
 
@@ -264,7 +256,9 @@ extension SignInViewController: Designable {
         view.backgroundColor = .white
         activityIndicator.tintColor = appearance.activityIndicatorStyle
         welcomeLabel.textColor = .black
+        welcomeLabel.font = .systemFont(ofSize: 25, weight: .bold)
         loginTextField.backgroundColor = .lightGray
+        loginTextField.tintColor = .blue
         loginTextField.textColor = .black
         signInButton.backgroundColor = .blue
         signInButton.setTitleColor(.white, for: .normal)
@@ -287,18 +281,29 @@ extension SignInViewController: Localizable {
 extension SignInViewController: KeyboardObservable {
 
     func keyboardWillShow(keyboardInfo: KeyboardInfo) {
+        if keyboardDismissTapGuesture == nil {
+            keyboardDismissTapGuesture = UITapGestureRecognizer(target: self, action: #selector(didEndEditingLoginTextField))
+            keyboardDismissTapGuesture?.cancelsTouchesInView = false
+        }
+        if let keyboardDismissTapGuesture = keyboardDismissTapGuesture {
+            view.addGestureRecognizer(keyboardDismissTapGuesture)
+        }
         var stackFrame = stackView.frame
-        stackFrame.origin.y += 64
+        stackFrame.origin.y += 75
         let intersection = stackFrame.intersection(keyboardInfo.frameEnd)
         guard intersection.height > 0 else { return }
         blurredNavigationController?.visualEffectView.alpha = 0
-        topConstraint?.constant = -intersection.height - 80
+        topConstraint?.constant = -intersection.height - 70
         UIView.animate(withDuration: keyboardInfo.animationDuration) {
             self.view.layoutIfNeeded()
         }
     }
 
     func keyboardWillHide(keyboardInfo: KeyboardInfo) {
+        if let keyboardDismissTapGuesture = keyboardDismissTapGuesture {
+            view.removeGestureRecognizer(keyboardDismissTapGuesture)
+            self.keyboardDismissTapGuesture = nil
+        }
         topConstraint?.constant = 0
         blurredNavigationController?.visualEffectView.alpha = 1
         UIView.animate(withDuration: keyboardInfo.animationDuration) {
@@ -314,7 +319,7 @@ private enum LayoutConstants {
     static let loginTextFieldLeftSpacing: CGFloat = 16
     static let loginTextFieldRightSpacing: CGFloat = 16
     static let signInButtonHeight: CGFloat = 50
-    static let welcomeLabelHeight: CGFloat = 300
+    static let welcomeLabelHeight: CGFloat = 200
 
     static let contentInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
 
