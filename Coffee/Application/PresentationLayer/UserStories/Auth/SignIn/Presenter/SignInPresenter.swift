@@ -34,7 +34,7 @@ extension SignInPresenter: SignInViewOutput {
 
     func didTapSignInButton(mail: String) {
         view?.startIndication()
-        interactor?.checkPhone(mail)
+//        interactor?.checkPhone(mail)
     }
 }
 

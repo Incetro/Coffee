@@ -45,6 +45,21 @@ final class SignInViewController: ViewController {
     private lazy var loginTextField = UITextField().then {
         $0.keyboardType = .emailAddress
         $0.delegate = loginTextFieldListener
+        $0.addLeftSpacing(LayoutConstants.loginTextFieldLeftSpacing)
+        let activityIndicatorWrapper = UIView(
+            frame: .init(
+                x: 0, y: 0,
+                width: LayoutConstants.loginTextFieldRightSpacing * 3 + activityIndicator.frame.width,
+                height: LayoutConstants.loginTextFieldHeight
+            )
+        )
+        activityIndicatorWrapper.addSubview(activityIndicator)
+        activityIndicator.center = .init(
+            x: activityIndicatorWrapper.frame.width / 2,
+            y: activityIndicatorWrapper.frame.height / 2
+        )
+        $0.rightView = activityIndicatorWrapper
+        $0.rightViewMode = .never
     }
 
     /// Label with a 'welcomeLabel' text
