@@ -128,6 +128,9 @@
 		CB3F309C254B7E7C00311E5E /* AppDelegatesCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F309B254B7E7C00311E5E /* AppDelegatesCollector.swift */; };
 		CB3F30A1254B7EB300311E5E /* AppDelegateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F30A0254B7EB300311E5E /* AppDelegateHandler.swift */; };
 		CB8665FB25CD774000F252EA /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8665FA25CD774000F252EA /* UITextField.swift */; };
+		CB86660125CD81DD00F252EA /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8665FE25CD81DD00F252EA /* KeyboardObserver.swift */; };
+		CB86660225CD81DD00F252EA /* KeyboardObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8665FF25CD81DD00F252EA /* KeyboardObservable.swift */; };
+		CB86660325CD81DD00F252EA /* KeyboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB86660025CD81DD00F252EA /* KeyboardInfo.swift */; };
 		CB8B940625CAE3AD0038EE02 /* SignInAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B93F425CAE3AD0038EE02 /* SignInAssembly.swift */; };
 		CB8B940725CAE3AD0038EE02 /* SignInModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B93F625CAE3AD0038EE02 /* SignInModule.swift */; };
 		CB8B940825CAE3AD0038EE02 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B93F825CAE3AD0038EE02 /* SignInPresenter.swift */; };
@@ -312,6 +315,9 @@
 		CB3F309B254B7E7C00311E5E /* AppDelegatesCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegatesCollector.swift; sourceTree = "<group>"; };
 		CB3F30A0254B7EB300311E5E /* AppDelegateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateHandler.swift; sourceTree = "<group>"; };
 		CB8665FA25CD774000F252EA /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		CB8665FE25CD81DD00F252EA /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
+		CB8665FF25CD81DD00F252EA /* KeyboardObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObservable.swift; sourceTree = "<group>"; };
+		CB86660025CD81DD00F252EA /* KeyboardInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardInfo.swift; sourceTree = "<group>"; };
 		CB8B93F425CAE3AD0038EE02 /* SignInAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInAssembly.swift; sourceTree = "<group>"; };
 		CB8B93F625CAE3AD0038EE02 /* SignInModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInModule.swift; sourceTree = "<group>"; };
 		CB8B93F825CAE3AD0038EE02 /* SignInPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
@@ -1384,6 +1390,16 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		CB8665FD25CD81DD00F252EA /* KeyboardObservable */ = {
+			isa = PBXGroup;
+			children = (
+				CB8665FE25CD81DD00F252EA /* KeyboardObserver.swift */,
+				CB8665FF25CD81DD00F252EA /* KeyboardObservable.swift */,
+				CB86660025CD81DD00F252EA /* KeyboardInfo.swift */,
+			);
+			path = KeyboardObservable;
+			sourceTree = "<group>";
+		};
 		CB8B93D825CADE140038EE02 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
@@ -1591,6 +1607,7 @@
 				CBA7459C2551AE2600089E22 /* BouncingButton */,
 				CBA745982551AE0C00089E22 /* AdaptableButton */,
 				CBA745942551ADE100089E22 /* BlurWrapperView */,
+				CB8665FD25CD81DD00F252EA /* KeyboardObservable */,
 				CBA745892551AC3800089E22 /* AlertController */,
 				CBA745812551AB3300089E22 /* Animation */,
 				CBA7457B2551AA8400089E22 /* Extensions */,
@@ -1863,6 +1880,7 @@
 			files = (
 				CB3F3075254B7BF300311E5E /* UIApplication.swift in Sources */,
 				CB29B7F7254C3BD00036A8EC /* BusinessComponentsAssembly.swift in Sources */,
+				CB86660125CD81DD00F252EA /* KeyboardObserver.swift in Sources */,
 				CB29B6CA254BF2D00036A8EC /* EmbedSegueViewController.swift in Sources */,
 				CB3F2F26254B61BE00311E5E /* CoffeeAssembliesCollector.swift in Sources */,
 				CB3F2FF9254B6F1100311E5E /* Dark.swift in Sources */,
@@ -1918,9 +1936,11 @@
 				CB3F2EEF254B58C100311E5E /* AnalyticsManager.swift in Sources */,
 				CB29B76F254C1C990036A8EC /* BlurredNavigationController.swift in Sources */,
 				CB3F3070254B7B1B00311E5E /* CoffeeQuickAction.swift in Sources */,
+				CB86660225CD81DD00F252EA /* KeyboardObservable.swift in Sources */,
 				CB8B941A25CAE7040038EE02 /* AuthServiceImplementation.swift in Sources */,
 				CB8B942925CAE7A80038EE02 /* ServiceCall.swift in Sources */,
 				CBA7457E2551AA8400089E22 /* UIView.swift in Sources */,
+				CB86660325CD81DD00F252EA /* KeyboardInfo.swift in Sources */,
 				CB384818254FEBFA00FB48F0 /* AdvancedModule.swift in Sources */,
 				CB29B6E4254C01190036A8EC /* ForceUpdateDaemon.swift in Sources */,
 				CB29B733254C171A0036A8EC /* Launcher.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import InputMask
 
 // MARK: - SignInViewController
@@ -73,6 +74,13 @@ final class SignInViewController: ViewController {
         $0.isEnabled = false
     }
 
+    /// Auxiliary scrollView instance (for using with stackView tricks)
+    private let scrollView = UIScrollView().then {
+        $0.clipsToBounds = false
+        $0.showsVerticalScrollIndicator = false
+        $0.delaysContentTouches = false
+    }
+
     /// Auxiliary stackView instance
     private let stackView = UIStackView().then {
         $0.axis = .vertical
@@ -82,6 +90,27 @@ final class SignInViewController: ViewController {
 
     /// Presenter instance
     var output: SignInViewOutput?
+
+    /// Scroll view top constraint
+    private var topConstraint: NSLayoutConstraint?
+
+    /// Keyboard events helper
+    private let keyboardObserver: KeyboardObserver
+
+    // MARK: - Initializers
+
+    init(keyboardObserver: KeyboardObserver) {
+        self.keyboardObserver = keyboardObserver
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    deinit {
+        keyboardObserver.unregister(observer: self)
+    }
 
     // MARK: - ViewController
 
@@ -94,7 +123,13 @@ final class SignInViewController: ViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        loginTextField.becomeFirstResponder()
+        keyboardObserver.register(observer: self)
+//        loginTextField.becomeFirstResponder()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        keyboardObserver.unregister(observer: self)
     }
 
     override func viewDidLayoutSubviews() {
@@ -106,8 +141,8 @@ final class SignInViewController: ViewController {
 
     private func signInButton(enabled: Bool) {
         signInButton.isEnabled = enabled
-        UIView.animate(withDuration: 0.35) {
-            self.signInButton.alpha = enabled ? 1 : 0.62
+        UIView.animate(withDuration: 0.3) {
+            self.signInButton.alpha = enabled ? 1 : 0.5
         }
     }
 }
@@ -116,16 +151,27 @@ final class SignInViewController: ViewController {
 
 extension SignInViewController {
 
-    private func setupStackView() {
+    private func setupScrollView() {
         let inset = LayoutConstants.contentInsets.left
-        let heightOfStack = LayoutConstants.welcomeLabelHeight + LayoutConstants.loginTextFieldHeight + LayoutConstants.signInButtonHeight
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(stackView)
+        view.addSubview(scrollView)
+        let topOfScroll = scrollView.topAnchor.constraint(equalTo: view.topAnchor)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: inset * 4),
-            stackView.heightAnchor.constraint(equalToConstant: heightOfStack + inset * 2),
-            stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: inset),
-            stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -inset)
+            topOfScroll,
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: inset),
+            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -inset)
+        ])
+        topConstraint = topOfScroll
+    }
+
+    private func setupStackView() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(stackView)
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
     }
 
@@ -150,6 +196,9 @@ extension SignInViewController {
     private func setupSignInButton() {
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(signInButton)
+        NSLayoutConstraint.activate([
+            signInButton.heightAnchor.constraint(equalToConstant: LayoutConstants.signInButtonHeight)
+        ])
         signInButton.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
     }
 
@@ -165,6 +214,7 @@ extension SignInViewController {
 extension SignInViewController: SignInViewInput {
 
     func setupInitialState() {
+        setupScrollView()
         setupStackView()
         setupLabels()
         setupTextFields()
@@ -232,6 +282,31 @@ extension SignInViewController: Localizable {
     }
 }
 
+// MARK: - KeyboardObservable
+
+extension SignInViewController: KeyboardObservable {
+
+    func keyboardWillShow(keyboardInfo: KeyboardInfo) {
+        var stackFrame = stackView.frame
+        stackFrame.origin.y += 64
+        let intersection = stackFrame.intersection(keyboardInfo.frameEnd)
+        guard intersection.height > 0 else { return }
+        blurredNavigationController?.visualEffectView.alpha = 0
+        topConstraint?.constant = -intersection.height - 80
+        UIView.animate(withDuration: keyboardInfo.animationDuration) {
+            self.view.layoutIfNeeded()
+        }
+    }
+
+    func keyboardWillHide(keyboardInfo: KeyboardInfo) {
+        topConstraint?.constant = 0
+        blurredNavigationController?.visualEffectView.alpha = 1
+        UIView.animate(withDuration: keyboardInfo.animationDuration) {
+            self.view.layoutIfNeeded()
+        }
+    }
+}
+
 // MARK: - LayoutConstants
 
 private enum LayoutConstants {
@@ -239,7 +314,7 @@ private enum LayoutConstants {
     static let loginTextFieldLeftSpacing: CGFloat = 16
     static let loginTextFieldRightSpacing: CGFloat = 16
     static let signInButtonHeight: CGFloat = 50
-    static let welcomeLabelHeight: CGFloat = 50
+    static let welcomeLabelHeight: CGFloat = 300
 
     static let contentInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
 

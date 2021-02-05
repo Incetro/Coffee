@@ -29,7 +29,8 @@ final class SignInModuleAssembly: CollectableAssembly {
     func assemble(inContainer container: Container) {
 
         container.register(SignInViewController.self) { resolver in
-            let controller = SignInViewController()
+            let keyboardObserver = resolver.resolve(KeyboardObserver.self).unwrap()
+            let controller = SignInViewController(keyboardObserver: keyboardObserver)
             controller.output = resolver.resolve(SignInViewOutput.self, argument: controller as SignInViewInput)
             return controller
         }

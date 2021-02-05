@@ -21,5 +21,9 @@ final class PresentationComponentsAssembly: CollectableAssembly {
             let window = resolver.resolve(UIWindow.self).unwrap()
             return DesignerImplementation(window: window)
         }.inObjectScope(.container)
+
+        container.register(KeyboardObserver.self) { _ in
+            KeyboardObserver()
+        }
     }
 }
