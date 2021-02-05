@@ -10,7 +10,7 @@
 
 protocol SignInInteractorOutput: class, InteractorOutput {
 
-    func signInAllowed(withPhone phone: String)
-    func signUpRequired(withPhone phone: String)
-    func phoneNumberIncorrect(_ phone: String)
+    func signInAllowed(withMail mail: String)
+    func signUpRequired(withMail mail: String)
+    func mailIncorrect(_ mail: String)
 }
