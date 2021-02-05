@@ -127,6 +127,7 @@
 		CB3F3097254B7E6500311E5E /* LaunchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F3096254B7E6500311E5E /* LaunchRouter.swift */; };
 		CB3F309C254B7E7C00311E5E /* AppDelegatesCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F309B254B7E7C00311E5E /* AppDelegatesCollector.swift */; };
 		CB3F30A1254B7EB300311E5E /* AppDelegateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F30A0254B7EB300311E5E /* AppDelegateHandler.swift */; };
+		CB8665FB25CD774000F252EA /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8665FA25CD774000F252EA /* UITextField.swift */; };
 		CB8B940625CAE3AD0038EE02 /* SignInAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B93F425CAE3AD0038EE02 /* SignInAssembly.swift */; };
 		CB8B940725CAE3AD0038EE02 /* SignInModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B93F625CAE3AD0038EE02 /* SignInModule.swift */; };
 		CB8B940825CAE3AD0038EE02 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8B93F825CAE3AD0038EE02 /* SignInPresenter.swift */; };
@@ -310,6 +311,7 @@
 		CB3F3096254B7E6500311E5E /* LaunchRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchRouter.swift; sourceTree = "<group>"; };
 		CB3F309B254B7E7C00311E5E /* AppDelegatesCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegatesCollector.swift; sourceTree = "<group>"; };
 		CB3F30A0254B7EB300311E5E /* AppDelegateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateHandler.swift; sourceTree = "<group>"; };
+		CB8665FA25CD774000F252EA /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		CB8B93F425CAE3AD0038EE02 /* SignInAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInAssembly.swift; sourceTree = "<group>"; };
 		CB8B93F625CAE3AD0038EE02 /* SignInModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInModule.swift; sourceTree = "<group>"; };
 		CB8B93F825CAE3AD0038EE02 /* SignInPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
@@ -1007,6 +1009,7 @@
 			isa = PBXGroup;
 			children = (
 				CB3F304C254B777D00311E5E /* UIColor.swift */,
+				CB8665FA25CD774000F252EA /* UITextField.swift */,
 				CB3F2F0F254B611F00311E5E /* Optional.swift */,
 			);
 			path = Extensions;
@@ -1941,6 +1944,7 @@
 				CB29B6CE254BF2D00036A8EC /* TransitionNavigationStyle.swift in Sources */,
 				CB9220652556FE3400D873F9 /* Atomic.swift in Sources */,
 				CB29B75C254C1BBD0036A8EC /* NavControllerFactoryImplementation.swift in Sources */,
+				CB8665FB25CD774000F252EA /* UITextField.swift in Sources */,
 				CB3F2FE6254B6BDE00311E5E /* PresentationComponentsAssembly.swift in Sources */,
 				CB29B6C1254BF2D00036A8EC /* Router.swift in Sources */,
 				CBA7458D2551AC3800089E22 /* AlertControllerAppearance.swift in Sources */,
