@@ -164,20 +164,40 @@ extension SignInViewController {
     }
 
     private func setupTextFields() {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         loginTextField.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(loginTextField)
-        stackView.setCustomSpacing(LayoutConstants.loginTextFieldSpacing, after: loginTextField)
+        stackView.addArrangedSubview(view)
+        stackView.setCustomSpacing(LayoutConstants.loginTextFieldSpacing, after: view)
         NSLayoutConstraint.activate([
-            loginTextField.heightAnchor.constraint(equalToConstant: LayoutConstants.loginTextFieldHeight)
+            view.heightAnchor.constraint(equalToConstant: LayoutConstants.loginTextFieldHeight)
+        ])
+        view.addSubview(loginTextField)
+        NSLayoutConstraint.activate([
+            loginTextField.widthAnchor.constraint(equalToConstant: LayoutConstants.loginTextFieldWidth),
+            loginTextField.heightAnchor.constraint(equalTo: view.heightAnchor),
+            loginTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loginTextField.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor),
+            loginTextField.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor)
         ])
         loginTextField.addTarget(self, action: #selector(didEndEditingLoginTextField), for: .primaryActionTriggered)
     }
 
     private func setupSignInButton() {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         signInButton.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(signInButton)
+        stackView.addArrangedSubview(view)
         NSLayoutConstraint.activate([
-            signInButton.heightAnchor.constraint(equalToConstant: LayoutConstants.signInButtonHeight)
+            view.heightAnchor.constraint(equalToConstant: LayoutConstants.signInButtonHeight)
+        ])
+        view.addSubview(signInButton)
+        NSLayoutConstraint.activate([
+            signInButton.widthAnchor.constraint(equalToConstant: LayoutConstants.signInButtonWidth),
+            signInButton.heightAnchor.constraint(equalTo: view.heightAnchor),
+            signInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            signInButton.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor),
+            signInButton.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor)
         ])
         signInButton.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
         signInButton.addTarget(self, action: #selector(didEndEditingLoginTextField), for: .touchUpInside)
@@ -318,7 +338,9 @@ private enum LayoutConstants {
     static let loginTextFieldHeight: CGFloat = 50
     static let loginTextFieldLeftSpacing: CGFloat = 16
     static let loginTextFieldRightSpacing: CGFloat = 16
+    static let loginTextFieldWidth: CGFloat = 370
     static let signInButtonHeight: CGFloat = 50
+    static let signInButtonWidth: CGFloat = 370
     static let welcomeLabelHeight: CGFloat = 200
 
     static let contentInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
