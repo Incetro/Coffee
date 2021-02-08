@@ -164,40 +164,40 @@ extension SignInViewController {
     }
 
     private func setupTextFields() {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+        let loginTextFieldContainer = UIView()
+        loginTextFieldContainer.translatesAutoresizingMaskIntoConstraints = false
         loginTextField.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(view)
-        stackView.setCustomSpacing(LayoutConstants.loginTextFieldSpacing, after: view)
+        stackView.addArrangedSubview(loginTextFieldContainer)
+        stackView.setCustomSpacing(LayoutConstants.loginTextFieldSpacing, after: loginTextFieldContainer)
         NSLayoutConstraint.activate([
-            view.heightAnchor.constraint(equalToConstant: LayoutConstants.loginTextFieldHeight)
+            loginTextFieldContainer.heightAnchor.constraint(equalToConstant: LayoutConstants.loginTextFieldHeight)
         ])
-        view.addSubview(loginTextField)
+        loginTextFieldContainer.addSubview(loginTextField)
         NSLayoutConstraint.activate([
             loginTextField.widthAnchor.constraint(equalToConstant: LayoutConstants.loginTextFieldWidth),
-            loginTextField.heightAnchor.constraint(equalTo: view.heightAnchor),
-            loginTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginTextField.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor),
-            loginTextField.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor)
+            loginTextField.heightAnchor.constraint(equalTo: loginTextFieldContainer.heightAnchor),
+            loginTextField.centerXAnchor.constraint(equalTo: loginTextFieldContainer.centerXAnchor),
+            loginTextField.trailingAnchor.constraint(lessThanOrEqualTo: loginTextFieldContainer.trailingAnchor),
+            loginTextField.leadingAnchor.constraint(greaterThanOrEqualTo: loginTextFieldContainer.leadingAnchor)
         ])
         loginTextField.addTarget(self, action: #selector(didEndEditingLoginTextField), for: .primaryActionTriggered)
     }
 
     private func setupSignInButton() {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+        let signInButtonContainer = UIView()
+        signInButtonContainer.translatesAutoresizingMaskIntoConstraints = false
         signInButton.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(view)
+        stackView.addArrangedSubview(signInButtonContainer)
         NSLayoutConstraint.activate([
-            view.heightAnchor.constraint(equalToConstant: LayoutConstants.signInButtonHeight)
+            signInButtonContainer.heightAnchor.constraint(equalToConstant: LayoutConstants.signInButtonHeight)
         ])
-        view.addSubview(signInButton)
+        signInButtonContainer.addSubview(signInButton)
         NSLayoutConstraint.activate([
             signInButton.widthAnchor.constraint(equalToConstant: LayoutConstants.signInButtonWidth),
-            signInButton.heightAnchor.constraint(equalTo: view.heightAnchor),
-            signInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            signInButton.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor),
-            signInButton.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor)
+            signInButton.heightAnchor.constraint(equalTo: signInButtonContainer.heightAnchor),
+            signInButton.centerXAnchor.constraint(equalTo: signInButtonContainer.centerXAnchor),
+            signInButton.trailingAnchor.constraint(lessThanOrEqualTo: signInButtonContainer.trailingAnchor),
+            signInButton.leadingAnchor.constraint(greaterThanOrEqualTo: signInButtonContainer.leadingAnchor)
         ])
         signInButton.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
         signInButton.addTarget(self, action: #selector(didEndEditingLoginTextField), for: .touchUpInside)
