@@ -124,6 +124,16 @@ final class SignInViewController: ViewController {
             self.signInButton.alpha = enabled ? 1 : 0.5
         }
     }
+
+    private func validateMail(mail: String) -> Bool {
+        let range = NSRange(location: 0, length: mail.utf16.count)
+        let test = try? NSRegularExpression(pattern: "[^@]+@([^@]+)")
+        if let test = test,
+           test.firstMatch(in: mail, options: [], range: range) != nil {
+            return true
+        }
+        return false
+    }
 }
 
 // MARK: - Layout
