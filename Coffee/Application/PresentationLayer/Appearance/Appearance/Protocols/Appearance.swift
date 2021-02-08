@@ -49,4 +49,7 @@ protocol Appearance {
 
     /// AlertControllerAppearance instance
     var alertControllerAppearance: AlertControllerAppearance { get }
+
+    /// SignInViewControllerAppearance instance
+    var signInViewControllerAppearance: SignInViewControllerAppearance { get }
 }

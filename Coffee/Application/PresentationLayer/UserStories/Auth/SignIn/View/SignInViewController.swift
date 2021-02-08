@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import InputMask
 
 // MARK: - SignInViewController
 
@@ -95,8 +94,8 @@ final class SignInViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        localizer.add(localizable: self)
         designer.add(designable: self)
+        localizer.add(localizable: self)
         output?.didTriggerViewReadyEvent()
     }
 
@@ -114,6 +113,7 @@ final class SignInViewController: ViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         signInButton.smoothlyRoundCourners(radius: LayoutConstants.signInButtonHeight / 2)
+        loginTextField.smoothlyRoundCourners(radius: LayoutConstants.loginTextFieldHeight / 2)
     }
 
     // MARK: - Private
@@ -273,15 +273,17 @@ extension SignInViewController: ViewOutputProvider {
 extension SignInViewController: Designable {
 
     func design(appearance: Appearance) {
-        view.backgroundColor = .white
+        let design = appearance.signInViewControllerAppearance
+        view.backgroundColor = design.backgroundColor
         activityIndicator.tintColor = appearance.activityIndicatorStyle
-        welcomeLabel.textColor = .black
-        welcomeLabel.font = .systemFont(ofSize: 25, weight: .bold)
-        loginTextField.backgroundColor = .lightGray
-        loginTextField.tintColor = .blue
-        loginTextField.textColor = .black
-        signInButton.backgroundColor = .blue
-        signInButton.setTitleColor(.white, for: .normal)
+        welcomeLabel.textColor = design.welcomeLabelTextColor
+        welcomeLabel.font = design.welcomeLabelFont
+        loginTextField.backgroundColor = design.loginTextFieldBackgroundColor
+        loginTextField.tintColor = design.signInButtonColorEnabled
+        loginTextField.textColor = design.loginTextFieldTextColor
+        signInButton.backgroundColor = design.signInButtonColorEnabled
+        signInButton.setTitleColor(design.signInButtonTitleColor, for: .normal)
+        signInButton.titleLabel?.font = design.signInButtonTitleFont
     }
 }
 
