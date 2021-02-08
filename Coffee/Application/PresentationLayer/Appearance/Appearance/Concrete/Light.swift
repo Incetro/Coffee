@@ -77,6 +77,20 @@ extension Light: Appearance {
         )
     }
 
+    var signInViewControllerAppearance: SignInViewControllerAppearance {
+        SignInViewControllerAppearance(
+            backgroundColor: backgroundColor,
+            loginTextFieldTextColor: .black,
+            loginTextFieldBackgroundColor: .lightGray,
+            welcomeLabelTextColor: .black,
+            welcomeLabelFont: .SFProBold(ofSize: 34),
+            signInButtonColorEnabled: accent,
+            signInButtonColorDisabled: accent,
+            signInButtonTitleColor: .white,
+            signInButtonTitleFont: .SFProBold(ofSize: 17)
+        )
+    }
+
     var hudAppearance: CMHUDAppearance {
         CMHUDAppearance(
             backgroundColor: UIColor(hexString: "#8A8A8F").withAlphaComponent(0.38),

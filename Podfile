@@ -13,6 +13,7 @@ target 'Coffee' do
   pod "Message"
   pod "Sentry", :git => "https://github.com/getsentry/sentry-cocoa.git", :tag => "5.1.9"
   pod "Swinject"
+  pod "SwinjectAutoregistration"
   pod "AppCenter"
   pod "DeviceKit"
   pod "Alamofire", "~> 4.9.1"

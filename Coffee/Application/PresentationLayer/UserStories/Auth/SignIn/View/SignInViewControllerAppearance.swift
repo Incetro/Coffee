@@ -11,4 +11,18 @@ import UIKit
 // MARK: - SignInViewControllerAppearance
 
 struct SignInViewControllerAppearance {
+
+    let backgroundColor: UIColor
+
+    let loginTextFieldTextColor: UIColor
+    let loginTextFieldBackgroundColor: UIColor
+
+    let welcomeLabelTextColor: UIColor
+    let welcomeLabelFont: UIFont
+
+    let signInButtonColorEnabled: UIColor
+    let signInButtonColorDisabled: UIColor
+
+    let signInButtonTitleColor: UIColor
+    let signInButtonTitleFont: UIFont
 }
