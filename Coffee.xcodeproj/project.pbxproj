@@ -127,6 +127,7 @@
 		CB3F3097254B7E6500311E5E /* LaunchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F3096254B7E6500311E5E /* LaunchRouter.swift */; };
 		CB3F309C254B7E7C00311E5E /* AppDelegatesCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F309B254B7E7C00311E5E /* AppDelegatesCollector.swift */; };
 		CB3F30A1254B7EB300311E5E /* AppDelegateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F30A0254B7EB300311E5E /* AppDelegateHandler.swift */; };
+		CB75048125D2A00C0083389F /* NSRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB75048025D2A00C0083389F /* NSRegularExpression.swift */; };
 		CB8665FB25CD774000F252EA /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8665FA25CD774000F252EA /* UITextField.swift */; };
 		CB86660125CD81DD00F252EA /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8665FE25CD81DD00F252EA /* KeyboardObserver.swift */; };
 		CB86660225CD81DD00F252EA /* KeyboardObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8665FF25CD81DD00F252EA /* KeyboardObservable.swift */; };
@@ -333,6 +334,7 @@
 		CB3F3096254B7E6500311E5E /* LaunchRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchRouter.swift; sourceTree = "<group>"; };
 		CB3F309B254B7E7C00311E5E /* AppDelegatesCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegatesCollector.swift; sourceTree = "<group>"; };
 		CB3F30A0254B7EB300311E5E /* AppDelegateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateHandler.swift; sourceTree = "<group>"; };
+		CB75048025D2A00C0083389F /* NSRegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSRegularExpression.swift; sourceTree = "<group>"; };
 		CB8665FA25CD774000F252EA /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		CB8665FE25CD81DD00F252EA /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		CB8665FF25CD81DD00F252EA /* KeyboardObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObservable.swift; sourceTree = "<group>"; };
@@ -881,6 +883,7 @@
 		CB3F2EC0254B504600311E5E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CB75048025D2A00C0083389F /* NSRegularExpression.swift */,
 				CB8DA2A1254DA55A00B86FD9 /* UserDefaults.swift */,
 			);
 			path = Extensions;
@@ -2054,6 +2057,7 @@
 				CBA7458D2551AC3800089E22 /* AlertControllerAppearance.swift in Sources */,
 				CB8DA290254DA21D00B86FD9 /* CacheCleanerImplementation.swift in Sources */,
 				CB8B941225CAE3AE0038EE02 /* SignInRouter.swift in Sources */,
+				CB75048125D2A00C0083389F /* NSRegularExpression.swift in Sources */,
 				CB29B6CD254BF2D00036A8EC /* ViperTransitionPromise.swift in Sources */,
 				CB1EC643254B1E1D006ED6BA /* Coffee.xcdatamodeld in Sources */,
 				CB29B77F254C1E980036A8EC /* CleanLaunchAppDelegate.swift in Sources */,
