@@ -125,14 +125,11 @@ final class SignInViewController: ViewController {
         }
     }
 
-    private func validateMail(mail: String) -> Bool {
-        let range = NSRange(location: 0, length: mail.utf16.count)
-        let test = try? NSRegularExpression(pattern: "[^@]+@([^@]+)")
-        if let test = test,
-           test.firstMatch(in: mail, options: [], range: range) != nil {
-            return true
+    private var isMailValid: Bool {
+        guard let mail = loginTextField.text else {
+            return false
         }
-        return false
+        return Constants.Regex.email.matches(mail)
     }
 }
 
@@ -191,6 +188,7 @@ extension SignInViewController {
             loginTextField.leadingAnchor.constraint(greaterThanOrEqualTo: loginTextFieldContainer.leadingAnchor)
         ])
         loginTextField.addTarget(self, action: #selector(didEndEditingLoginTextField), for: .primaryActionTriggered)
+        loginTextField.addTarget(self, action: #selector(didStartEditingLoginTextField), for: .editingChanged)
     }
 
     private func setupSignInButton() {
@@ -223,6 +221,10 @@ extension SignInViewController {
     @objc private func didEndEditingLoginTextField() {
         loginTextField.resignFirstResponder()
     }
+
+    @objc private func didStartEditingLoginTextField() {
+        signInButton(enabled: isMailValid)
+    }
 }
 
 // MARK: - SignInViewInput
@@ -253,16 +255,6 @@ extension SignInViewController: SignInViewInput {
 // MARK: - UITextFieldDelegate
 
 extension SignInViewController: UITextFieldDelegate {
-
-    internal func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var count = (textField.text?.count ?? 0) + 1
-        if string == "" {
-            count -= 2
-        }
-        let complete = count > 4
-        signInButton(enabled: complete)
-        return true
-    }
 
     internal func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         guard !activityIndicator.isAnimating else { return false }
