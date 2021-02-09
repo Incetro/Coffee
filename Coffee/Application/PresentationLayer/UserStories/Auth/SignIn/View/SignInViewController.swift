@@ -41,6 +41,10 @@ final class SignInViewController: ViewController {
         $0.rightViewMode = .never
     }
 
+    private var logoImageView = UIImageView(image: Asset.logo.image).then {
+        $0.contentMode = .scaleAspectFit
+    }
+
     /// Label with a 'welcomeLabel' text
     private let welcomeLabel = UILabel().then {
         $0.textAlignment = .center
@@ -64,6 +68,13 @@ final class SignInViewController: ViewController {
         $0.axis = .vertical
         $0.alignment = .fill
         $0.distribution = .fill
+    }
+
+    private var isMailValid: Bool {
+        guard let mail = loginTextField.text else {
+            return false
+        }
+        return Constants.Regex.email.matches(mail)
     }
 
     /// Presenter instance
@@ -124,13 +135,6 @@ final class SignInViewController: ViewController {
             self.signInButton.alpha = enabled ? 1 : 0.5
         }
     }
-
-    private var isMailValid: Bool {
-        guard let mail = loginTextField.text else {
-            return false
-        }
-        return Constants.Regex.email.matches(mail)
-    }
 }
 
 // MARK: - Layout
@@ -161,13 +165,19 @@ extension SignInViewController {
         ])
     }
 
+    private func setupLogoImage() {
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(logoImageView)
+        stackView.setCustomSpacing(LayoutConstants.logoImageViewSpacing, after: logoImageView)
+        NSLayoutConstraint.activate([
+            logoImageView.heightAnchor.constraint(equalToConstant: LayoutConstants.logoImageViewHeight)
+        ])
+    }
+
     private func setupLabels() {
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(welcomeLabel)
         stackView.setCustomSpacing(LayoutConstants.welcomLabelSpacing, after: welcomeLabel)
-        NSLayoutConstraint.activate([
-            welcomeLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.welcomeLabelHeight)
-        ])
     }
 
     private func setupTextFields() {
@@ -234,6 +244,7 @@ extension SignInViewController: SignInViewInput {
     func setupInitialState() {
         setupScrollView()
         setupStackView()
+        setupLogoImage()
         setupLabels()
         setupTextFields()
         setupSignInButton()
@@ -345,12 +356,15 @@ private enum LayoutConstants {
     static let loginTextFieldWidth: CGFloat = 370
     static let signInButtonHeight: CGFloat = 50
     static let signInButtonWidth: CGFloat = 370
-    static let welcomeLabelHeight: CGFloat = 200
-
+    static let logoImageViewHeight: CGFloat = 70
     static let contentInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
 
     static var welcomLabelSpacing: CGFloat {
         32
+    }
+
+    static var logoImageViewSpacing: CGFloat {
+        16
     }
 
     static var loginTextFieldSpacing: CGFloat {
