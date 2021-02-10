@@ -1,0 +1,16 @@
+/*
+  InfoPlist.strings
+  Venue
+
+  Created by incetro on 01/02/2020.
+  Copyright © 2020 Incetro Inc. All rights reserved.
+*/
+
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Shows your location on the map and allows you to take a part in routes";
+"NSLocationWhenInUseUsageDescription" = "Shows your location on the map and allows you to take a part in routes";
+"NSLocationUsageDescription" = "Shows your location on the map and allows you to take a part in routes";
+"NSLocationAlwaysUsageDescription" = "Shows your location on the map and allows you to take a part in routes";
+
+"NSCameraUsageDescription" = "It's necessary to upload your photos to your profile";
+"NSPhotoLibraryUsageDescription" = "It's necessary to upload your photos to your profile";
+

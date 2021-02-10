@@ -1,0 +1,371 @@
+/*
+  Localizable.strings
+  Venue
+
+  Created by incetro on 29/03/2018.
+  Copyright © 2019 incetro. All rights reserved.
+*/
+
+"errors.unknown" = "Unknown error";
+"errors.error" = "Error";
+"errors.incorrect-points-distance" = "The distance between two last points must be at least %@ meters.";
+
+"settings.title" = "Settings";
+"settings.account.login" = "Login";
+"settings.account.logout" = "Log out";
+"settings.account.change-password" = "Change password";
+"settings.account.clear-cache" = "Clear cache";
+"settings.notifications.title" = "Notifications";
+"settings.language.title" = "Language";
+"settings.route.title" = "Map options";
+"settings.route.sections.geoposition-label" = "Geoposition marker";
+"settings.themes.title" = "Appearance";
+"settings.support.title" = "Support";
+"settings.about-app.title" = "About App";
+
+"about-app.license-agreement" = "License agreement";
+"about-app.privacy-policy" = "Privacy policy";
+"about-app.website" = "Website appname.app";
+"about-app.release-info" = "Version %@ of %@";
+"about-app.update.ok" = "Your app is up to date";
+"about-app.update.possible" = "Update your app now";
+
+"languages.russian.name" = "Russian";
+"languages.russian.title" = "Русский";
+"languages.english.name" = "English";
+"languages.english.title" = "English";
+"languages.deutsch.name" = "German";
+"languages.deutsch.title" = "Deutsch";
+
+"support.unavailable.title" = "Error :(";
+"support.unavailable.message" = "Mail app isn't available on your device.";
+"support.choose-mail-client.title" = "Confirmation";
+"support.choose-mail-client.message" = "Could you choose one of these email clients to send report?";
+
+"themes.title" = "Appearance";
+"themes.types.dark" = "Dark";
+"themes.types.light" = "Light";
+"themes.types.gray" = "Graphite";
+"themes.system-change" = "System change";
+
+"sign-in.sign-in-button" = "Continue";
+"sign-in.placeholders.login" = "E-mail adress";
+"sign-in.welcome-title" = "Welcome to\nVenue!";
+"sign-in.description" = "Please confirm your country code and enter your phone number.";
+"sign-in.errors.invalid-phone-number" = "Invalid e-mail adress. Please try again.";
+
+"sign-up.title" = "Sign Up";
+"sign-up.description" = "You’re only a few steps away from joining Venue.";
+"sign-up.placeholders.nickname" = "Username";
+"sign-up.placeholders.name" = "Name";
+"sign-up.sign-up-button" = "Continue";
+"sign-up.footnote.title" = "By signin up you are agreeing to our Terms of Service and view Privacy Policy.";
+"sign-up.footnote.terms-of-service" = "Terms of Service";
+"sign-up.footnote.privacy-policy" = "Privacy Policy";
+"sign-up.nickname.unavailable" = "unavailable";
+
+"min-version.title" = "Updating required";
+"min-version.update-button-title" = "Update";
+"min-version.message" = "In the latest updates we've made some new changes which aren't supported in your version. Therefore, you must update the application.";
+
+"edit-profile.logout" = "Logout";
+"edit-profile.change-password" = "Change password";
+"edit-profile.title" = "Edit profile";
+"edit-profile.done" = "Done";
+"edit-profile.avatar.title" = "Choose your option";
+"edit-profile.avatar.gallery" = "Gallery";
+"edit-profile.avatar.camera" = "Camera";
+"edit-profile.cover.title" = "Add a cover";
+"edit-profile.cover.remove" = "Remove";
+"edit-profile.name" = "Name";
+"edit-profile.username" = "Username";
+"edit-profile.city" = "City";
+"edit-profile.transport" = "Transport";
+"edit-profile.bio" = "Bio";
+"edit-profile.gender" = "Gender";
+"edit-profile.birthday" = "Birthday";
+"edit-profile.not-set" = "Not Set";
+"edit-profile.gender.male" = "Male";
+"edit-profile.gender.female" = "Female";
+"edit-profile.gender.other" = "Other";
+
+"social.placeholder" = "@";
+"social.instagram" = "Instagram";
+"social.telegram" = "Telegram";
+
+"user-profile.favorites" = "Favorites";
+"user-profile.followers" = "Followers";
+"user-profile.following" = "Following";
+"user-profile.friends" = "Friends";
+"user-profile.follow" = "Follow";
+"user-profile.edit" = "Edit";
+"user-profile.history" = "History 🥇🥈🥉";
+"user-profile.tracks" = "Tracks";
+"user-profile.exp-subtitle" = "Rating points";
+
+"history-rollup.title.someones" = "History @%@";
+"history-rollup.title.mine" = "My history";
+
+"routes.history.all" = "All";
+"routes.title.someones" = "Tracks @%@";
+"routes.title.mine" = "My tracks";
+"routes.tabs.someones" = "All";
+"routes.tabs.following" = "Following";
+"routes.tabs.favorites" = "Favorites";
+"routes.empty" = "No one track hasn’t been created yet.";
+
+"routes.filter.title" = "Tracks filter";
+"routes.filter.empty" = "Nothing found :(";
+"routes.filter.radius-title" = "Radius from me";
+"routes.filter.min-length-title" = "Min length";
+"routes.filter.max-length-title" = "Max length";
+"routes.filter.min-travel-time-title" = "Min travel time";
+"routes.filter.max-travel-time-title" = "Max travel time";
+"routes.filter.passes" = "Min number of passes";
+"routes.filter.users" = "Min number of users";
+"routes.filter.only-mine" = "My tracks only";
+"routes.filter.followance.title" = "Friend's tracks";
+"routes.filter.followance.description" = "Tracks from people who are following you and who you are following";
+"routes.filter.citites" = "Cities";
+"routes.filter.transport" = "Transport";
+
+"route-designer.title.new-route" = "New track";
+"route-designer.title.route-preview" = "Track preview";
+"route-designer.save" = "Save";
+"route-designer.enter-route-name.message" = "Please enter the track name";
+"route-designer.new-route.route-type.title" = "Please choose track type";
+"route-designer.tutoring.create" = "Hold your finger on the map to add checkpoint";
+"route-designer.tutoring.move" = "Hold your finger on the checkpoint to move it";
+"route-designer.tutoring.remove" = "Tap on the point to remove it";
+"route-designer.errors.max-points-limit" = "Maximum available points count is 25";
+
+"route-driving.stop-route-alert.title" = "Warning!";
+"route-driving.stop-route-alert.message" = "Do you really want to stop track driving? All data will be lost.";
+"route-driving.before-starting" = "%@%@ to start";
+"route-driving.ready" = "READY?";
+"route-driving.go" = "GO!";
+"route-driving.alerts.speed-violation-help.title" = "Speed violation";
+"route-driving.alerts.speed-violation-help.description" = "The speed can be exceeded no more than %@ times.";
+
+"route-direction.disabled" = "Disabled";
+"route-direction.walking" = "Walking";
+"route-direction.cycling" = "Cycling";
+"route-direction.driving" = "Driving";
+
+"finish-route-info.max-speed" = "max speed";
+"finish-route-info.average-speed" = "average speed";
+"finish-route-info.info" = "%@ from @%@";
+
+"users.filter.cities" = "Cities";
+"users.filter.title" = "Users filter";
+
+"3d-shortcus.create-route" = "New track";
+
+"notifications.title" = "Notifications";
+"notifications.route-will-be-finished" = "If you don't open the app track will be cancelled after %@ minutes";
+"notifications.types.track-hints" = "Hints on the track";
+"notifications.types.new-follower" = "New follower";
+"notifications.sections.track.title" = "Tracks";
+"notifications.sections.followance.title" = "Followance";
+
+"today" = "Today";
+"clear" = "Clear";
+"share" = "Share";
+"yes" = "Yes";
+"no" = "No";
+"ok" = "OK";
+"done" = "Done";
+"cancel" = "Cancel";
+"remove" = "Remove";
+"edit" = "Edit";
+"open" = "Open";
+"retry" = "Try again";
+"distance" = "%@ %@";
+"meters" = "m";
+"kilometers" = "km";
+"speed" = "%@ %@";
+"kmh" = "km/h";
+"next" = "Next";
+"start" = "Start";
+"stop" = "Stop";
+"choose-your-action" = "Choose an action";
+"warning" = "Warning";
+"search.title" = "Search";
+"search.people" = "People";
+"search.routes" = "Tracks";
+"search.tournaments" = "Tourneys";
+"search.empty" = "Nothing found";
+"to-start.distance" = "%@ to start";
+"to-start.too-close" = "You are here";
+
+"time.h" = "h";
+"time.m" = "m";
+"time.s" = "s";
+
+"time.hours" = "h";
+"time.minutes" = "min";
+"time.seconds" = "s";
+
+"date.ago" = "%@ ago";
+
+"alert.sign-in.invalid-phone-number.message" = "Invalid phone number. Please try again.";
+
+"alert.code-verification.stop-verification-process.title" = "Do you really want to stop the verification process?";
+"alert.code-verification.stop-verification-process.actions.continue" = "Continue";
+
+"alert.sign-up.stop-registration-process.title" = "Do you really want to stop the registration process?";
+"alert.sign-up.stop-registration-process.actions.continue" = "Continue";
+
+"alert.notifications.title" = "Please allow access to notifications";
+"alert.notifications.description" = "Please allow Venue to send you useful notifications.";
+
+"alert.location-base.title" = "Please allow access to the geolocation";
+"alert.location-base.description" = "Allow access to the geolocation so that Venue can determine your location.";
+
+"alert.location-always.design.title" = "Allow access to the geolocation to design your track";
+"alert.location-always.design.description" = "To design your track and determine your location, please select \"Always\" in the Venue geolocation settings.";
+"alert.location-always.driving.title" = "Please allow access to the geolocation to start the track";
+"alert.location-always.driving.description" = "To start your track and determine your location, please select \"Always\" in the Venue geolocation settings.";
+"alert.location-always.routes.title" = "Please allow access to the geolocation to show you the nearest tracks";
+"alert.location-always.routes.description" = "To allow us to show you the nearest tracks and determine your location, please select \"Always\" in the Venue geolocation settings.";
+
+"route-cell.see-on-the-map" = "See on the map";
+
+"alert.route-cancelled.timeout.title" = "Track was cancelled";
+"alert.route-cancelled.timeout.description" = "The \"%@\" track was canceled because you exited the app. Please do not exit the app while you are on your route.";
+"alert.route-cancelled.permissions.title" = "Track was cancelled";
+"alert.route-cancelled.permissions.description" = "The \"%@\" track was canceled because you restricted location access in settings. Please do not do that while you are on your route.";
+"alert.route-cancelled.speed-limit.title" = "Track was cancelled";
+"alert.route-cancelled.speed-limit.description" = "The \"%@\" track was canceled because you've exceeded allowed speed limit %@. Please do not do that when you have a speed limitation.";
+
+"country-code.title" = "Country Code";
+
+"code-verification.description.password-has-been-changed" = "Password has been successfully changed";
+"code-verification.description.sms" = "Enter the code sent to your number\n%@";
+"code-verification.description.password" = "Please, enter your password";
+"code-verification.description.new-password" = "Please, enter your new password";
+"code-verification.description.sign-up-password" = "Create a password to log in";
+"code-verification.description.forgot-password" = "We will send a verification code to your number to reset your password";
+"code-verification.action-button.title.resend" = "Resend code";
+"code-verification.action-button.title.remind" = "Forgot password?";
+"code-verification.action-button.title.interval" = "Resend the code in %@";
+"code-verification.errors.code-incorrect" = "Your have entered an invalid cоde. Please try again.";
+
+"agreement.terms-of-service.title" = "Terms of service";
+"agreement.privacy-policy.title" = "Privacy policy";
+
+"regions.title" = "Cities";
+"regions.empty.initial" = "Enter the name of the city";
+"regions.empty.search" = "Nothing found";
+"regions.limit.title" = "Reached limit";
+"regions.limit.description" = "You can choose up to %@ regions for search.";
+
+"countries.title" = "Countries";
+"countries.empty.initial" = "Enter the name of the countries";
+"countries.empty.search" = "Nothing found";
+"countries.limit.title" = "Reached limit";
+"countries.limit.description" = "You can choose up to %@ countries for search.";
+
+"follow.k" = "k";
+"follow.m" = "M";
+"follow.b" = "B";
+
+"followance.followers" = "Followers";
+"followance.following" = "Following";
+"followance.followed" = "Followed";
+"followance.mutual" = "Friends";
+"followance.status.follow" = "Follow";
+"followance.status.following" = "Following";
+"followance.status.mutual" = "Friends";
+"followance.alerts.unfollow.title" = "Are you sure you want to unfollow from %@?";
+
+"recommended.stub-text" = "Offers and popular Tracks will be available soon. In the meantime, you can use the search.";
+
+"markers.standard.name" = "Standard";
+"markers.the-run.name" = "Venue";
+
+"appearance.section.appearance" = "Appearance";
+"appearance.section.color" = "Color";
+
+"route.actions.follow" = "Follow";
+"route.actions.unfollow" = "Following";
+"route.actions.start" = "Go to track";
+"route.by" = "by @%@";
+"route.details.distance" = "Distance";
+"route.details.record" = "Record";
+"route.details.participants" = "Participants";
+"route.details.followers" = "Followers";
+"route.details.limit" = "Limit";
+"route.details.average-speed" = "Avg speed";
+"route.details.average-time" = "Avg time";
+"route.empty-finished" = "No one has finished the route yet.";
+"route.feed" = "Feed";
+"route.on-track" = "%@ on track";
+"route.activation" = "Pass the track\nto activate it";
+
+"route-amend.title.edit" = "Edit track";
+"route-amend.title.create" = "New track";
+"route-amend.route-type.public.title" = "Public";
+"route-amend.route-type.mutual.title" = "Followance";
+"route-amend.route-type.private.title" = "Private";
+"route-amend.route-type.public.description" = "Will be available for everyone.";
+"route-amend.route-type.mutual.description" = "Will be available for everyone who is following you and who you are following.";
+"route-amend.route-type.private.description" = "Will be available only for you and for users you have shared the track with.";
+"route-amend.limit" = "Limit";
+"route-amend.remove-confirmation.title" = "Are you sure you want to delete the track?";
+"route-amend.transport-is-obligatory" = "Please choose at least one transport";
+
+"onboarding.create.title" = "Create tracks on the map";
+"onboarding.create.description" = "Create tracks and share them with the world";
+"onboarding.compete.title" = "Compete";
+"onboarding.compete.description" = "Move by any type of transport or on your own two feet";
+"onboarding.win.title" = "Win";
+"onboarding.win.description" = "Find cool tracks and break records";
+
+"route-rating.title" = "🏆 %@";
+
+"transport.title" = "Transport";
+"transport.types.running" = "Running";
+"transport.types.rollers" = "Rollers";
+"transport.types.scooter" = "Scooter";
+"transport.types.skateboard" = "Skateboard";
+"transport.types.bicycle" = "Bicycle";
+"transport.types.bike" = "Bike";
+"transport.types.car" = "Car";
+"transport.types.snowmobile" = "Snowmobile";
+"transport.types.ATVs" = "ATVs";
+"transport.types.other" = "Other";
+"transport.limit.title" = "Reached limit";
+"transport.limit.description" = "You can choose up to %@ means of transport for the track.";
+
+"context-menu.share" = "Share";
+"context-menu.settings" = "Settings";
+"context-menu.report" = "Report";
+"context-menu.edit" = "Edit";
+"context-menu.comments" = "Comments";
+
+"contact-email" = "incetro@ya.ru";
+
+"experience-rating.title" = "Hall of fame";
+"experience-rating.subtitle" = "%@, %@ 􀆈";
+"experience-rating.filter.title" = "Hall of fame filter";
+"experience-rating.filter.cities" = "Cities";
+"experience-rating.filter.countries" = "Countries";
+"experience-rating.filter.time-period" = "Time period";
+"experience-rating.city-tab" = "City";
+"experience-rating.whole-world-tab" = "Country";
+"experience-rating.all-time-tab" = "World";
+
+"experience-rating.filter.time-period.perDay" = "Per day";
+"experience-rating.filter.time-period.perWeek" = "Per week";
+"experience-rating.filter.time-period.perMonth" = "Per month";
+"experience-rating.filter.time-period.allTime" = "All time";
+"experience-rating.filter.time-period.custom" = "Custom";
+"experience-rating.new" = "New";
+"experience-rating.choose-country" = "Choose a country";
+"experience-rating.choose-city" = "Choose a city";
+"experience-rating.empty-exp.country" = "There is no information on your request";
+"experience-rating.empty-exp.city" = "There is no information on your requestg";
+
+"comments.title" = "Comments";
+

@@ -1,0 +1,19 @@
+//
+//  Staging.xcconfig
+//  Venue
+//
+//  Created by incetro on 01/02/2020.
+//  Copyright © 2020 Incetro Inc. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+ENVIRONMENT=Staging
+BASE_URL=https:/$()/api.stage.appname.app
+SECRET_KEY=ece39da2-97a4-4ef6-b1b4-a329ee67f1b7
+SWIFTY_BEAVER_APP_ID=o8Qe3J
+SWIFTY_BEAVER_APP_SECRET=Bz6Us2hax97mlqvmfh9imAr0teeSbt0b
+SWIFTY_BEAVER_ENCRYPTION_KEY=jBwfcvmeqnoxty2cn3fyvf5gdd6vqGj8
+APP_CENTER_TOKEN=a1f6add1-6100-444d-af8e-9c09d7f36da3
+SEND_CODE_ENABLED=true
