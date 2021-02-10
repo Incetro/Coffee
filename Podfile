@@ -5,7 +5,7 @@ inhibit_all_warnings!
 
 source 'https://cdn.cocoapods.org/'
 
-target 'Coffee' do
+target 'Venue' do
   use_frameworks!
   pod "SwiftLint"
   pod "SwiftyBeaver"
