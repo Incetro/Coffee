@@ -12,6 +12,7 @@ target 'Coffee' do
   pod "MBProgressHUD"
   pod "Message"
   pod "Sentry", :git => "https://github.com/getsentry/sentry-cocoa.git", :tag => "5.1.9"
+  pod "swift-layout"
   pod "Swinject"
   pod "SwinjectAutoregistration"
   pod "AppCenter"
