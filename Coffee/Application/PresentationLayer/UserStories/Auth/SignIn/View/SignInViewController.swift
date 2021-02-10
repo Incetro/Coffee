@@ -350,6 +350,7 @@ private enum LayoutConstants {
     static let headerImageViewHeight: CGFloat = 70
     static let contentInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
 
+    
     static var welcomLabelSpacing: CGFloat {
         32
     }
