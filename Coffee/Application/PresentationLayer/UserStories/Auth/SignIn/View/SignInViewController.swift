@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Layout
 
 // MARK: - SignInViewController
 
@@ -19,6 +20,22 @@ final class SignInViewController: ViewController {
 
     /// Auxiliary gesture recognizer for keyboard
     private var keyboardDismissTapGuesture: UIGestureRecognizer?
+
+    /// View with current header image
+    private var headerImageView = UIImageView(image: Asset.logo.image).then {
+        $0.contentMode = .scaleAspectFit
+    }
+
+    /// Label with a 'welcomeLabel' text
+    private let welcomeLabel = UILabel().then {
+        $0.textAlignment = .center
+        $0.numberOfLines = 0
+    }
+
+    /// Login button
+    private let signInButton = UIButton(type: .roundedRect).then {
+        $0.isEnabled = false
+    }
 
     /// Phone text field
     private lazy var loginTextField = UITextField().then {
@@ -41,21 +58,6 @@ final class SignInViewController: ViewController {
         $0.rightViewMode = .never
     }
 
-    private var logoImageView = UIImageView(image: Asset.logo.image).then {
-        $0.contentMode = .scaleAspectFit
-    }
-
-    /// Label with a 'welcomeLabel' text
-    private let welcomeLabel = UILabel().then {
-        $0.textAlignment = .center
-        $0.numberOfLines = 0
-    }
-
-    /// Login button
-    private let signInButton = UIButton(type: .roundedRect).then {
-        $0.isEnabled = false
-    }
-
     /// Auxiliary scrollView instance (for using with stackView tricks)
     private let scrollView = UIScrollView().then {
         $0.clipsToBounds = false
@@ -70,6 +72,7 @@ final class SignInViewController: ViewController {
         $0.distribution = .fill
     }
 
+    /// True if the current username matches username regex
     private var isMailValid: Bool {
         guard let mail = loginTextField.text else {
             return false
@@ -144,83 +147,71 @@ extension SignInViewController {
     private func setupScrollView() {
         let inset = LayoutConstants.contentInsets.left
         view.addSubview(scrollView)
-        let topOfScroll = scrollView.topAnchor.constraint(equalTo: view.topAnchor)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            topOfScroll,
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: inset),
-            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -inset)
-        ])
-        topConstraint = topOfScroll
+        scrollView
+            .prepareForAutolayout()
+            .bottom(to: view.bottom)
+            .left(to: view.left + inset)
+            .right(to: view.right - inset)
+        topConstraint = scrollView.top.connect(to: view.top)
     }
 
     private func setupStackView() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(stackView)
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-        ])
+        scrollView.addSubview(stackView.prepareForAutolayout())
+        stackView
+            .top(to: scrollView.top)
+            .centerX(to: scrollView.centerX)
+            .width.equal(to: scrollView.width)
     }
 
     private func setupLogoImage() {
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(logoImageView)
-        stackView.setCustomSpacing(LayoutConstants.logoImageViewSpacing, after: logoImageView)
-        NSLayoutConstraint.activate([
-            logoImageView.heightAnchor.constraint(equalToConstant: LayoutConstants.logoImageViewHeight)
-        ])
+        headerImageView.height(LayoutConstants.headerImageViewHeight)
+        stackView.addArrangedSubview(headerImageView.prepareForAutolayout())
+        stackView.setCustomSpacing(LayoutConstants.logoImageViewSpacing, after: headerImageView)
     }
 
     private func setupLabels() {
-        welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addArrangedSubview(welcomeLabel)
+        stackView.addArrangedSubview(welcomeLabel.prepareForAutolayout())
         stackView.setCustomSpacing(LayoutConstants.welcomLabelSpacing, after: welcomeLabel)
     }
 
     private func setupTextFields() {
         let loginTextFieldContainer = UIView()
-        loginTextFieldContainer.translatesAutoresizingMaskIntoConstraints = false
-        loginTextField.translatesAutoresizingMaskIntoConstraints = false
+            .prepareForAutolayout()
+            .height(LayoutConstants.loginTextFieldHeight)
+        loginTextFieldContainer.addSubview(loginTextField.prepareForAutolayout())
+        loginTextField
+            .height(equalTo: loginTextFieldContainer.height)
+            .width(LayoutConstants.loginTextFieldWidth)
+            .centerX(to: loginTextFieldContainer.centerX)
+        loginTextField.right.less(than: loginTextFieldContainer.right)
+        loginTextField.left.greater(than: loginTextFieldContainer.left)
         stackView.addArrangedSubview(loginTextFieldContainer)
         stackView.setCustomSpacing(LayoutConstants.loginTextFieldSpacing, after: loginTextFieldContainer)
-        NSLayoutConstraint.activate([
-            loginTextFieldContainer.heightAnchor.constraint(equalToConstant: LayoutConstants.loginTextFieldHeight)
-        ])
-        loginTextFieldContainer.addSubview(loginTextField)
-        NSLayoutConstraint.activate([
-            loginTextField.widthAnchor.constraint(equalToConstant: LayoutConstants.loginTextFieldWidth),
-            loginTextField.heightAnchor.constraint(equalTo: loginTextFieldContainer.heightAnchor),
-            loginTextField.centerXAnchor.constraint(equalTo: loginTextFieldContainer.centerXAnchor),
-            loginTextField.trailingAnchor.constraint(lessThanOrEqualTo: loginTextFieldContainer.trailingAnchor),
-            loginTextField.leadingAnchor.constraint(greaterThanOrEqualTo: loginTextFieldContainer.leadingAnchor)
-        ])
         loginTextField.addTarget(self, action: #selector(didEndEditingLoginTextField), for: .primaryActionTriggered)
         loginTextField.addTarget(self, action: #selector(didStartEditingLoginTextField), for: .editingChanged)
     }
 
     private func setupSignInButton() {
         let signInButtonContainer = UIView()
-        signInButtonContainer.translatesAutoresizingMaskIntoConstraints = false
-        signInButton.translatesAutoresizingMaskIntoConstraints = false
+            .prepareForAutolayout()
+            .height(LayoutConstants.signInButtonHeight)
+        signInButtonContainer.addSubview(signInButton.prepareForAutolayout())
+        signInButton
+            .height(equalTo: signInButtonContainer.height)
+            .width(LayoutConstants.signInButtonWidth)
+            .centerX(to: signInButtonContainer.centerX)
+        signInButton.right.less(than: signInButtonContainer.right)
+        signInButton.left.greater(than: signInButtonContainer.left)
         stackView.addArrangedSubview(signInButtonContainer)
-        NSLayoutConstraint.activate([
-            signInButtonContainer.heightAnchor.constraint(equalToConstant: LayoutConstants.signInButtonHeight)
-        ])
-        signInButtonContainer.addSubview(signInButton)
-        NSLayoutConstraint.activate([
-            signInButton.widthAnchor.constraint(equalToConstant: LayoutConstants.signInButtonWidth),
-            signInButton.heightAnchor.constraint(equalTo: signInButtonContainer.heightAnchor),
-            signInButton.centerXAnchor.constraint(equalTo: signInButtonContainer.centerXAnchor),
-            signInButton.trailingAnchor.constraint(lessThanOrEqualTo: signInButtonContainer.trailingAnchor),
-            signInButton.leadingAnchor.constraint(greaterThanOrEqualTo: signInButtonContainer.leadingAnchor)
-        ])
         signInButton.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
         signInButton.addTarget(self, action: #selector(didEndEditingLoginTextField), for: .touchUpInside)
         signInButton(enabled: false)
     }
+}
+
+// MARK: - Actions
+
+extension SignInViewController {
 
     @objc private func didTapSignInButton() {
         guard !activityIndicator.isAnimating else { return }
@@ -356,7 +347,7 @@ private enum LayoutConstants {
     static let loginTextFieldWidth: CGFloat = 370
     static let signInButtonHeight: CGFloat = 50
     static let signInButtonWidth: CGFloat = 370
-    static let logoImageViewHeight: CGFloat = 70
+    static let headerImageViewHeight: CGFloat = 70
     static let contentInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
 
     static var welcomLabelSpacing: CGFloat {
