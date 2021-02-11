@@ -23,7 +23,11 @@ target 'Venue' do
   pod "HTTPTransport"
   pod "ObjectMapper"
   pod 'InputMask'
+end
 
+target 'VenueUITests' do
+  use_frameworks!
+  pod "Nimble"
 end
 
 post_install do |installer|

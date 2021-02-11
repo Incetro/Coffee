@@ -5,7 +5,7 @@
 //  Created by Дмитрий Савинов on 29.10.2020.
 //
 
-import HTTPTransport
+import Foundation
 
 let environment = Configuration()
 

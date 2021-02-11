@@ -10,14 +10,23 @@ import UIKit
 
 // MARK: - UIPage
 
+/// Protocol which desribes some view
+/// representation in slightly different
+/// abstraction
 protocol UIPage {
 
+    /// An element type which will describe
+    /// certain view
     associatedtype UIElementType: UIElement
 
-    /// Make some UI element testable
-    /// - Parameter view: some ui element
-    /// - Parameter element: element description
-    func testify(_ view: UIAccessibilityIdentification, using element: UIElementType)
+    /// Mark the given view as testable view
+    /// - Parameters:
+    ///   - view: target view
+    ///   - element: view description
+    func testify(
+        _ view: UIAccessibilityIdentification,
+        using element: UIElementType
+    )
 }
 
 extension UIPage {
