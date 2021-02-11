@@ -11,4 +11,10 @@ import Foundation
 // MARK: - AccessibilityHierarchy
 
 struct AccessibilityHierarchy {
+    enum SignIn: String, UIElement, RawRepresentable {
+        case mailTextField = "E-mail adress"
+        case continueButton = "Continue"
+        case welcomeLabel = "Welcome to\nVenue!"
+        case imageView = "logo"
+    }
 }

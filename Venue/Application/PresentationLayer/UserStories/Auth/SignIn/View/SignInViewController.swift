@@ -111,6 +111,9 @@ final class SignInViewController: ViewController {
         designer.add(designable: self)
         localizer.add(localizable: self)
         output?.didTriggerViewReadyEvent()
+        testify(welcomeLabel, using: .welcomeLabel)
+        testify(loginTextField, using: .mailTextField)
+        testify(headerImageView, using: .imageView)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -336,6 +339,13 @@ extension SignInViewController: KeyboardObservable {
             self.view.layoutIfNeeded()
         }
     }
+}
+
+// MARK: - UIPage
+
+extension SignInViewController: UIPage {
+
+    typealias UIElementType = AccessibilityHierarchy.SignIn
 }
 
 // MARK: - LayoutConstants
