@@ -18,9 +18,6 @@ final class SignInViewController: ViewController {
     /// Progress indicator
     private lazy var activityIndicator = UIActivityIndicatorView()
 
-    /// Auxiliary gesture recognizer for keyboard
-    private var keyboardDismissTapGuesture: UIGestureRecognizer?
-
     /// View with current header image
     private var headerImageView = UIImageView(image: Asset.logo.image).then {
         $0.contentMode = .scaleAspectFit
@@ -114,6 +111,7 @@ final class SignInViewController: ViewController {
         testify(welcomeLabel, using: .welcomeLabel)
         testify(loginTextField, using: .mailTextField)
         testify(headerImageView, using: .imageView)
+        hideKeyboardWhenTappedAround()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -310,13 +308,6 @@ extension SignInViewController: Localizable {
 extension SignInViewController: KeyboardObservable {
 
     func keyboardWillShow(keyboardInfo: KeyboardInfo) {
-        if keyboardDismissTapGuesture == nil {
-            keyboardDismissTapGuesture = UITapGestureRecognizer(target: self, action: #selector(didEndEditingLoginTextField))
-            keyboardDismissTapGuesture?.cancelsTouchesInView = false
-        }
-        if let keyboardDismissTapGuesture = keyboardDismissTapGuesture {
-            view.addGestureRecognizer(keyboardDismissTapGuesture)
-        }
         var stackFrame = stackView.frame
         stackFrame.origin.y += 75
         let intersection = stackFrame.intersection(keyboardInfo.frameEnd)
@@ -329,10 +320,6 @@ extension SignInViewController: KeyboardObservable {
     }
 
     func keyboardWillHide(keyboardInfo: KeyboardInfo) {
-        if let keyboardDismissTapGuesture = keyboardDismissTapGuesture {
-            view.removeGestureRecognizer(keyboardDismissTapGuesture)
-            self.keyboardDismissTapGuesture = nil
-        }
         topConstraint?.constant = 0
         blurredNavigationController?.visualEffectView.alpha = 1
         UIView.animate(withDuration: keyboardInfo.animationDuration) {
