@@ -6,6 +6,8 @@
 //  Copyright © 2020 Incetro Inc. All rights reserved.
 //
 
+import Foundation
+
 // MARK: - AuthServiceImplementation
 
 final class AuthServiceImplementation: Service {
@@ -32,9 +34,10 @@ final class AuthServiceImplementation: Service {
 
 extension AuthServiceImplementation: AuthService {
 
-    func check(mail: String) -> ServiceCall<Bool> {
+    func check(login: String) -> ServiceCall<Bool> {
         createCall { () -> Result<Bool, Error> in
-            .success(true)
+            sleep(2)
+            return .success(true)
         }
     }
 
@@ -44,13 +47,13 @@ extension AuthServiceImplementation: AuthService {
         }
     }
 
-    func requestCode(withMail mail: String) -> ServiceCall<Void> {
+    func requestCode(withLogin login: String) -> ServiceCall<Void> {
         createCall { () -> Result<Void, Error> in
             .success(())
         }
     }
 
-    func signIn(withPassword password: String, mail: String) -> ServiceCall<Void> {
+    func signIn(withPassword password: String, login: String) -> ServiceCall<Void> {
         createCall { () -> Result<Void, Error> in
             .success(())
         }

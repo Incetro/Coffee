@@ -12,5 +12,5 @@ import Foundation
 
 protocol SignInInteractorInput {
 
-    func checkMail(_ mail: String)
+    func checkLogin(_ login: String)
 }

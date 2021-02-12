@@ -70,9 +70,9 @@ extension ViewInput {
         (self as? Designable).unwrap().designer.appearance.hudAppearance
     }
 
-    private var alertAppearance: AlertControllerAppearance {
-        (self as? Designable).unwrap().designer.appearance.alertControllerAppearance
-    }
+//    private var alertAppearance: AlertControllerAppearance {
+//        (self as? Designable).unwrap().designer.appearance.alertControllerAppearance
+//    }
 
     func startIndication() {
         startIndication(withText: nil, details: nil)
@@ -161,50 +161,50 @@ extension ViewInput where Self: UIViewController {
     }
 
     func showMessage(_ message: String) {
-        let controller = navigationController ?? self
-        let alertController = AlertController(
-            title: message,
-            actionButtonTitle: L10n.ok,
-            appearance: alertAppearance
-        )
-        controller.present(alertController, animated: true)
+//        let controller = navigationController ?? self
+//        let alertController = AlertController(
+//            title: message,
+//            actionButtonTitle: L10n.ok,
+//            appearance: alertAppearance
+//        )
+//        controller.present(alertController, animated: true)
     }
 
     func showMessage(
         _ message: String,
         actionBlock block: @escaping () -> Void
     ) {
-        let controller = tabBarController ?? navigationController ?? self
-        let alertController = AlertController(
-            title: message,
-            actionButtonTitle: L10n.ok,
-            appearance: alertAppearance
-        )
-        alertController.desirableAction = block
-        controller.present(alertController, animated: true)
+//        let controller = tabBarController ?? navigationController ?? self
+//        let alertController = AlertController(
+//            title: message,
+//            actionButtonTitle: L10n.ok,
+//            appearance: alertAppearance
+//        )
+//        alertController.desirableAction = block
+//        controller.present(alertController, animated: true)
     }
 
     func showErrorMessage(_ errorMessage: String) {
-        let controller = tabBarController ?? navigationController ?? self
-        let alertController = AlertController(
-            title: errorMessage,
-            actionButtonTitle: L10n.ok,
-            appearance: alertAppearance
-        )
-        controller.present(alertController, animated: true)
+//        let controller = tabBarController ?? navigationController ?? self
+//        let alertController = AlertController(
+//            title: errorMessage,
+//            actionButtonTitle: L10n.ok,
+//            appearance: alertAppearance
+//        )
+//        controller.present(alertController, animated: true)
     }
 
     func showErrorMessage(_ errorMessage: String, retryBlock block: @escaping () -> Void) {
-        let controller = tabBarController ?? navigationController ?? self
-        let alertController = AlertController(
-            title: errorMessage,
-            actionButtonTitle: L10n.ok,
-            cancelButtonTitle: L10n.cancel,
-            appearance: alertAppearance
-        )
-        alertController.desirableAction = block
-        alertController.cancelAction = {}
-        controller.present(alertController, animated: true)
+//        let controller = tabBarController ?? navigationController ?? self
+//        let alertController = AlertController(
+//            title: errorMessage,
+//            actionButtonTitle: L10n.ok,
+//            cancelButtonTitle: L10n.cancel,
+//            appearance: alertAppearance
+//        )
+//        alertController.desirableAction = block
+//        alertController.cancelAction = {}
+//        controller.present(alertController, animated: true)
     }
 
     func showError() {
@@ -215,15 +215,15 @@ extension ViewInput where Self: UIViewController {
         title: String,
         confirmationBlock: @escaping VoidClosure
     ) {
-        let controller = tabBarController ?? navigationController ?? self
-        let alertController = AlertController(
-            title: title,
-            actionButtonTitle: L10n.ok,
-            cancelButtonTitle: L10n.cancel,
-            appearance: alertAppearance
-        )
-        alertController.desirableAction = confirmationBlock
-        alertController.cancelAction = {}
-        controller.present(alertController, animated: true)
+//        let controller = tabBarController ?? navigationController ?? self
+//        let alertController = AlertController(
+//            title: title,
+//            actionButtonTitle: L10n.ok,
+//            cancelButtonTitle: L10n.cancel,
+//            appearance: alertAppearance
+//        )
+//        alertController.desirableAction = confirmationBlock
+//        alertController.cancelAction = {}
+//        controller.present(alertController, animated: true)
     }
 }

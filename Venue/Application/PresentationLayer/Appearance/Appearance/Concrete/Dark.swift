@@ -70,21 +70,6 @@ extension Dark: Appearance {
         }
     }
 
-    var alertControllerAppearance: AlertControllerAppearance {
-        AlertControllerAppearance(
-            imageColor: .init(hexString: "#8F8F8A"),
-            titleFont: .SFProSemibold(ofSize: 17),
-            titleColor: .white,
-            descriptionFont: .SFProRegular(ofSize: 13),
-            descriptionColor: .white,
-            actionButtonBackgroundColor: accent,
-            actionButtonTitleFont: .SFProBold(ofSize: 17),
-            actionButtonTitleColor: .white,
-            backgroundColor: UIColor.black.withAlphaComponent(0.53),
-            backgroundBlurColor: UIColor(red: 28, green: 28, blue: 29).withAlphaComponent(0.62)
-        )
-    }
-
     var signInViewControllerAppearance: SignInViewControllerAppearance {
         SignInViewControllerAppearance(
             backgroundColor: backgroundColor,

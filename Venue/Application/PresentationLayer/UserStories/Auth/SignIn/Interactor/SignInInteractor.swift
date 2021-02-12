@@ -31,15 +31,15 @@ final class SignInInteractor {
 
 extension SignInInteractor: SignInInteractorInput {
 
-    func checkMail(_ mail: String) {
+    func checkLogin(_ login: String) {
         authService
-            .check(mail: mail)
+            .check(login: login)
             .async()
             .success { [weak self] exists in
                 if exists {
-                    self?.output?.signInAllowed(withMail: mail)
+                    self?.output?.signInAllowed(withLogin: login)
                 } else {
-                    self?.output?.signUpRequired(withMail: mail)
+                    self?.output?.signUpRequired(withLogin: login)
                 }
             }
             .failure(output?.processError)

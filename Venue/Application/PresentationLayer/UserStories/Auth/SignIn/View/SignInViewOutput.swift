@@ -17,6 +17,6 @@ protocol SignInViewOutput {
 
     /// Phone was entered and sign in button was tapped
     /// - Parameters:
-    ///   - mail: entered phone number
-    func didTapSignInButton(mail: String)
+    ///   - login: entered login
+    func didTapSignInButton(login: String)
 }

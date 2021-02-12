@@ -187,8 +187,6 @@
 		CBA745852551AB3300089E22 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA745822551AB3300089E22 /* Animation.swift */; };
 		CBA745862551AB3300089E22 /* AnimationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA745832551AB3300089E22 /* AnimationToken.swift */; };
 		CBA745872551AB3300089E22 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA745842551AB3300089E22 /* UIView+Animation.swift */; };
-		CBA7458C2551AC3800089E22 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA7458A2551AC3800089E22 /* AlertController.swift */; };
-		CBA7458D2551AC3800089E22 /* AlertControllerAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA7458B2551AC3800089E22 /* AlertControllerAppearance.swift */; };
 		CBA745912551AD2300089E22 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA745902551AD2300089E22 /* Then.swift */; };
 		CBA745962551ADE100089E22 /* BlurWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA745952551ADE100089E22 /* BlurWrapperView.swift */; };
 		CBA7459A2551AE0C00089E22 /* AdaptiveWidthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA745992551AE0C00089E22 /* AdaptiveWidthButton.swift */; };
@@ -416,8 +414,6 @@
 		CBA745822551AB3300089E22 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		CBA745832551AB3300089E22 /* AnimationToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationToken.swift; sourceTree = "<group>"; };
 		CBA745842551AB3300089E22 /* UIView+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
-		CBA7458A2551AC3800089E22 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
-		CBA7458B2551AC3800089E22 /* AlertControllerAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerAppearance.swift; sourceTree = "<group>"; };
 		CBA745902551AD2300089E22 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		CBA745952551ADE100089E22 /* BlurWrapperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurWrapperView.swift; sourceTree = "<group>"; };
 		CBA745992551AE0C00089E22 /* AdaptiveWidthButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveWidthButton.swift; sourceTree = "<group>"; };
@@ -1743,7 +1739,6 @@
 				CBA745982551AE0C00089E22 /* AdaptableButton */,
 				CBA745942551ADE100089E22 /* BlurWrapperView */,
 				CB8665FD25CD81DD00F252EA /* KeyboardObservable */,
-				CBA745892551AC3800089E22 /* AlertController */,
 				CBA745812551AB3300089E22 /* Animation */,
 				CBA7457B2551AA8400089E22 /* Extensions */,
 				CBA745732551A9C300089E22 /* CMHUD */,
@@ -1778,15 +1773,6 @@
 				CBA745842551AB3300089E22 /* UIView+Animation.swift */,
 			);
 			path = Animation;
-			sourceTree = "<group>";
-		};
-		CBA745892551AC3800089E22 /* AlertController */ = {
-			isa = PBXGroup;
-			children = (
-				CBA7458A2551AC3800089E22 /* AlertController.swift */,
-				CBA7458B2551AC3800089E22 /* AlertControllerAppearance.swift */,
-			);
-			path = AlertController;
 			sourceTree = "<group>";
 		};
 		CBA7458F2551AD2300089E22 /* Then */ = {
@@ -2222,7 +2208,6 @@
 				CB8665FB25CD774000F252EA /* UITextField.swift in Sources */,
 				CB3F2FE6254B6BDE00311E5E /* PresentationComponentsAssembly.swift in Sources */,
 				CB29B6C1254BF2D00036A8EC /* Router.swift in Sources */,
-				CBA7458D2551AC3800089E22 /* AlertControllerAppearance.swift in Sources */,
 				CB8DA290254DA21D00B86FD9 /* CacheCleanerImplementation.swift in Sources */,
 				CB8B941225CAE3AE0038EE02 /* SignInRouter.swift in Sources */,
 				CB75048125D2A00C0083389F /* NSRegularExpression.swift in Sources */,
@@ -2285,7 +2270,6 @@
 				CB29B6BE254BF2D00036A8EC /* ViewOutput.swift in Sources */,
 				CB29B73E254C17A80036A8EC /* CleanLaunchRouter.swift in Sources */,
 				CB3F3062254B7A8D00311E5E /* Aliases.swift in Sources */,
-				CBA7458C2551AC3800089E22 /* AlertController.swift in Sources */,
 				CB29B6C0254BF2D00036A8EC /* ContentManager.swift in Sources */,
 				CB3F2F38254B636C00311E5E /* DispatchQueue.swift in Sources */,
 				CB3F3043254B752300311E5E /* UIApplicationOpenURLProtocol.swift in Sources */,

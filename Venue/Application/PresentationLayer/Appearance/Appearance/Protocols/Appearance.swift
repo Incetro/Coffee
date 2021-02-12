@@ -47,9 +47,6 @@ protocol Appearance {
     /// CMHUDAppearance instance
     var hudAppearance: CMHUDAppearance { get }
 
-    /// AlertControllerAppearance instance
-    var alertControllerAppearance: AlertControllerAppearance { get }
-
     /// SignInViewControllerAppearance instance
     var signInViewControllerAppearance: SignInViewControllerAppearance { get }
 }

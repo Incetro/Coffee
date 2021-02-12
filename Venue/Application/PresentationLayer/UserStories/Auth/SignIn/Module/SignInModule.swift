@@ -12,13 +12,19 @@ import UIKit
 
 final class SignInModule: Module {
 
+    // MARK: - Aliases
+
     typealias Input = SignInModuleInput
     typealias View = SignInViewController
+
+    // MARK: - Initializers
 
     required init() {
     }
 
+    // MARK: - Module
+
     static func instantiate() -> SignInViewController {
-		SignInModuleAssembly().obtainViewController()
+        SignInModuleAssembly().obtainViewController()
     }
 }
