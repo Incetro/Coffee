@@ -7,6 +7,7 @@
 //
 
 import Swinject
+import SwinjectAutoregistration
 
 // MARK: - BusinessComponentsAssembly
 
@@ -17,14 +18,8 @@ final class BusinessComponentsAssembly: CollectableAssembly {
 
     func assemble(inContainer container: Container) {
 
-        container.register(Localizer.self) { resolver in
-            let defaults = resolver.resolve(UserDefaults.self).unwrap()
-            return LocalizerImplementation(defaults: defaults)
-        }.inObjectScope(.container)
+        container.autoregister(Localizer.self, initializer: LocalizerImplementation.init).inObjectScope(.container)
 
-        container.register(AuthService.self) { resolver in
-            let notifier = resolver.resolve(Notifier.self).unwrap()
-            return AuthServiceImplementation(notifier: notifier)
-        }.inObjectScope(.container)
+        container.autoregister(AuthService.self, initializer: AuthServiceImplementation.init).inObjectScope(.container)
     }
 }

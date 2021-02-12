@@ -12,7 +12,6 @@ import Foundation
 
 protocol SignInInteractorInput {
 
-
     /// Checking for login via backend request
     /// - Parameter login: contains String value of login
     func checkLogin(_ login: String)
