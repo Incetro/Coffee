@@ -15,7 +15,7 @@ class Router: RouterInput {
     // MARK: - Properties
 
     /// Transition handler instance
-    private(set) unowned var transitionHandler: TransitionHandler
+    let transitionHandler: TransitionHandler
 
     // MARK: - Initializers
 
