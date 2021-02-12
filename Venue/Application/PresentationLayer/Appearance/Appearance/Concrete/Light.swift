@@ -62,21 +62,6 @@ extension Light: Appearance {
         backgroundColor
     }
 
-    var alertControllerAppearance: AlertControllerAppearance {
-        AlertControllerAppearance(
-            imageColor: .init(hexString: "#8F8F8A"),
-            titleFont: .SFProSemibold(ofSize: 17),
-            titleColor: .black,
-            descriptionFont: .SFProRegular(ofSize: 13),
-            descriptionColor: .black,
-            actionButtonBackgroundColor: accent,
-            actionButtonTitleFont: .SFProBold(ofSize: 17),
-            actionButtonTitleColor: .white,
-            backgroundColor: UIColor(hexString: "#8A8A8F").withAlphaComponent(0.53),
-            backgroundBlurColor: UIColor.white.withAlphaComponent(0.62)
-        )
-    }
-
     var signInViewControllerAppearance: SignInViewControllerAppearance {
         SignInViewControllerAppearance(
             backgroundColor: backgroundColor,

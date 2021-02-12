@@ -23,20 +23,20 @@ protocol AuthService {
 
     /// Checks if the given phone already registered in the app
     /// - Parameter phone: some phone
-    func check(mail: String) -> ServiceCall<Bool>
+    func check(login: String) -> ServiceCall<Bool>
 
     /// Refresh current user token
     func refreshAccessToken() -> ServiceCall<Void>
 
     /// Send an auth code to the given number
     /// - Parameter phone: some phone
-    func requestCode(withMail mail: String) -> ServiceCall<Void>
+    func requestCode(withLogin login: String) -> ServiceCall<Void>
 
     /// Sign in user
     /// - Parameters:
     ///   - password: user password
     ///   - phone: user phone
-    func signIn(withPassword password: String, mail: String) -> ServiceCall<Void>
+    func signIn(withPassword password: String, login: String) -> ServiceCall<Void>
 
     /// User sign up
     /// - Parameters:

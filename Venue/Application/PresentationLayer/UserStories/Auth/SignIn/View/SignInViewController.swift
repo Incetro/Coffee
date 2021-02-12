@@ -33,7 +33,7 @@ final class SignInViewController: ViewController {
     }
 
     /// Login button
-    private let signInButton = UIButton(type: .roundedRect).then {
+    private let signInButton = UIButton().then {
         $0.isEnabled = false
     }
 
@@ -73,11 +73,11 @@ final class SignInViewController: ViewController {
     }
 
     /// True if the current username matches username regex
-    private var isMailValid: Bool {
-        guard let mail = loginTextField.text else {
+    private var isLoginValid: Bool {
+        guard let login = loginTextField.text else {
             return false
         }
-        return Constants.Regex.email.matches(mail)
+        return Constants.Regex.email.matches(login)
     }
 
     /// Presenter instance
@@ -218,8 +218,8 @@ extension SignInViewController {
 
     @objc private func didTapSignInButton() {
         guard !activityIndicator.isAnimating else { return }
-        guard let mail = loginTextField.text else { return }
-        output?.didTapSignInButton(mail: mail)
+        guard let login = loginTextField.text else { return }
+        output?.didTapSignInButton(login: login)
     }
 
     @objc private func didEndEditingLoginTextField() {
@@ -227,7 +227,7 @@ extension SignInViewController {
     }
 
     @objc private func didStartEditingLoginTextField() {
-        signInButton(enabled: isMailValid)
+        signInButton(enabled: isLoginValid)
     }
 }
 

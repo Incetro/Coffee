@@ -20,30 +20,6 @@ extension UserDefaults {
         removeObject(forKey: key.rawValue)
     }
 
-    func cache<T: Codable>(value: T?, forKey key: Constants.UserDefaultsKeys) {
-        do {
-            if let value = value {
-                let data = try JSONEncoder().encode(value)
-                setValue(data, forKey: key.rawValue)
-            } else {
-            }
-        } catch {
-            log.error(error)
-        }
-    }
-
-    func retrieve<T: Codable>(forKey key: Constants.UserDefaultsKeys) -> T? {
-        guard let data = value(forKey: key.rawValue) as? Data else {
-            return nil
-        }
-        do {
-            return try JSONDecoder().decode(T.self, from: data)
-        } catch {
-            log.error(error)
-            fatalError(error.localizedDescription)
-        }
-    }
-
     func value(forKey key: Constants.UserDefaultsKeys) -> Any? {
         value(forKey: key.rawValue)
     }
