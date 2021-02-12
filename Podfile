@@ -5,6 +5,8 @@ inhibit_all_warnings!
 
 source 'https://cdn.cocoapods.org/'
 
+platform :ios, '11.0'
+
 target 'Venue' do
   use_frameworks!
   pod "SwiftLint"
@@ -23,11 +25,6 @@ target 'Venue' do
   pod "HTTPTransport"
   pod "ObjectMapper"
   pod 'InputMask'
-end
-
-target 'VenueUITests' do
-  use_frameworks!
-  pod "Nimble"
 end
 
 post_install do |installer|
