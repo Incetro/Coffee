@@ -10,7 +10,15 @@
 
 protocol SignInInteractorOutput: class, InteractorOutput {
 
+    /// Login check was successful and necessary to sign in
+    /// - Parameter login: contains String value of login
     func signInAllowed(withLogin login: String)
+
+    /// Login check was successful and necessary to sign up
+    /// - Parameter login: contains String value of login
     func signUpRequired(withLogin login: String)
-    func mailIncorrect(_ login: String)
+
+    /// Login check was failed
+    /// - Parameter login: contains String value of login
+    func loginIncorrect(_ login: String)
 }

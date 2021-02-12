@@ -55,7 +55,7 @@ extension SignInPresenter: SignInInteractorOutput {
         view?.stopIndication()
     }
 
-    func mailIncorrect(_ login: String) {
+    func loginIncorrect(_ login: String) {
         view?.stopIndication()
         view?.showErrorMessage(L10n.Alert.SignIn.InvalidPhoneNumber.message)
     }
