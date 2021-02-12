@@ -1,5 +1,5 @@
 //
-//  GenericCellController.swift
+//  GenericCellPresenter.swift
 //  Venue
 //
 //  Created by incetro on 03/04/2018.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-// MARK: - GenericCellController
+// MARK: - GenericCellPresenter
 
-public typealias TableCellController = CellController<UITableView>
-public typealias CollectionCellController = CellController<UICollectionView>
+public typealias TableCellPresenter = CellPresenter<UITableView>
+public typealias CollectionCellPresenter = CellPresenter<UICollectionView>
 
-open class GenericCellController<T: ReusableCell>: CellController<T.CellHolder> {
+open class GenericCellPresenter<T: ReusableCell>: CellPresenter<T.CellHolder> {
 
     final override public class var cellClass: AnyClass {
         T.self

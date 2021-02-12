@@ -1,5 +1,5 @@
 //
-//  CellController.swift
+//  CellPresenter.swift
 //  Venue
 //
 //  Created by incetro on 03/04/2018.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-// MARK: - CellController
+// MARK: - CellPresenter
 
-open class CellController<T: ReusableCellHolder>: NSObject {
+open class CellPresenter<T: ReusableCellHolder>: NSObject {
 
     public weak var reusableCellHolder: T?
     public var indexPath: IndexPath?

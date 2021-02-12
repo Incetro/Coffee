@@ -97,8 +97,8 @@
 		CB3F2F26254B61BE00311E5E /* VenueAssembliesCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F2F25254B61BE00311E5E /* VenueAssembliesCollector.swift */; };
 		CB3F2F38254B636C00311E5E /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F2F37254B636C00311E5E /* DispatchQueue.swift */; };
 		CB3F2FB6254B6AB200311E5E /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F2FB5254B6AB200311E5E /* Paginator.swift */; };
-		CB3F2FBD254B6AE200311E5E /* GenericCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F2FBB254B6AE200311E5E /* GenericCellController.swift */; };
-		CB3F2FBE254B6AE200311E5E /* CellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F2FBC254B6AE200311E5E /* CellController.swift */; };
+		CB3F2FBD254B6AE200311E5E /* GenericCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F2FBB254B6AE200311E5E /* GenericCellPresenter.swift */; };
+		CB3F2FBE254B6AE200311E5E /* CellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F2FBC254B6AE200311E5E /* CellPresenter.swift */; };
 		CB3F2FC3254B6AE700311E5E /* ReusableCellHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F2FC2254B6AE700311E5E /* ReusableCellHolder.swift */; };
 		CB3F2FD8254B6B8E00311E5E /* AccessibilityHierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F2FD7254B6B8E00311E5E /* AccessibilityHierarchy.swift */; };
 		CB3F2FDF254B6BA000311E5E /* UIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F2FDD254B6B9F00311E5E /* UIElement.swift */; };
@@ -323,8 +323,8 @@
 		CB3F2F25254B61BE00311E5E /* VenueAssembliesCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueAssembliesCollector.swift; sourceTree = "<group>"; };
 		CB3F2F37254B636C00311E5E /* DispatchQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
 		CB3F2FB5254B6AB200311E5E /* Paginator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
-		CB3F2FBB254B6AE200311E5E /* GenericCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericCellController.swift; sourceTree = "<group>"; };
-		CB3F2FBC254B6AE200311E5E /* CellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellController.swift; sourceTree = "<group>"; };
+		CB3F2FBB254B6AE200311E5E /* GenericCellPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericCellPresenter.swift; sourceTree = "<group>"; };
+		CB3F2FBC254B6AE200311E5E /* CellPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellPresenter.swift; sourceTree = "<group>"; };
 		CB3F2FC2254B6AE700311E5E /* ReusableCellHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCellHolder.swift; sourceTree = "<group>"; };
 		CB3F2FD7254B6B8E00311E5E /* AccessibilityHierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityHierarchy.swift; sourceTree = "<group>"; };
 		CB3F2FDD254B6B9F00311E5E /* UIElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIElement.swift; sourceTree = "<group>"; };
@@ -1210,8 +1210,8 @@
 		CB3F2FBA254B6ACE00311E5E /* CellController */ = {
 			isa = PBXGroup;
 			children = (
-				CB3F2FBC254B6AE200311E5E /* CellController.swift */,
-				CB3F2FBB254B6AE200311E5E /* GenericCellController.swift */,
+				CB3F2FBC254B6AE200311E5E /* CellPresenter.swift */,
+				CB3F2FBB254B6AE200311E5E /* GenericCellPresenter.swift */,
 				CB3F2FC2254B6AE700311E5E /* ReusableCellHolder.swift */,
 			);
 			path = CellController;
@@ -2142,7 +2142,7 @@
 				CB3F306E254B7B1B00311E5E /* QuickActions.swift in Sources */,
 				CB29B702254C149B0036A8EC /* ExternalDependenciesConfigurator.swift in Sources */,
 				CB8B942E25CAE9E10038EE02 /* CodeVerificationModule.swift in Sources */,
-				CB3F2FBE254B6AE200311E5E /* CellController.swift in Sources */,
+				CB3F2FBE254B6AE200311E5E /* CellPresenter.swift in Sources */,
 				CBA7459A2551AE0C00089E22 /* AdaptiveWidthButton.swift in Sources */,
 				CB29B727254C167F0036A8EC /* AppDelegateProxy.swift in Sources */,
 				CBA745772551A9C300089E22 /* CMHUD.swift in Sources */,
@@ -2251,7 +2251,7 @@
 				CB3F3089254B7D2800311E5E /* Daemon.swift in Sources */,
 				CB29B6C5254BF2D00036A8EC /* CustomTransitionPromise.swift in Sources */,
 				CB384810254FEABB00FB48F0 /* SettingsRevealableRouterInput.swift in Sources */,
-				CB3F2FBD254B6AE200311E5E /* GenericCellController.swift in Sources */,
+				CB3F2FBD254B6AE200311E5E /* GenericCellPresenter.swift in Sources */,
 				CB3F2F18254B617400311E5E /* AssembliesCollector.swift in Sources */,
 				CBA74423255045F300089E22 /* DesignerImplementation.swift in Sources */,
 				CB8B942525CAE7A80038EE02 /* HTTPResponse.swift in Sources */,
