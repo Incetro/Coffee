@@ -36,7 +36,7 @@ extension AuthServiceImplementation: AuthService {
 
     func check(login: String) -> ServiceCall<Bool> {
         createCall { () -> Result<Bool, Error> in
-            sleep(2)
+            sleep(1)
             return .success(false)
         }
     }

@@ -53,7 +53,6 @@ extension SignInPresenter: SignInInteractorOutput {
 
     func signUpRequired(withLogin login: String) {
         view?.stopIndication()
-        view?.showMessage("зарегайся")
     }
 
     func loginIncorrect(_ login: String) {
