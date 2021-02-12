@@ -177,6 +177,7 @@
 		CB94F49525D5AF03006C506C /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94F49425D5AF03006C506C /* BaseTest.swift */; };
 		CB94F49A25D5B013006C506C /* BaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94F49925D5B013006C506C /* BaseScreen.swift */; };
 		CB94F4B625D5B0DE006C506C /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB94F4B525D5B0DE006C506C /* Nimble.framework */; };
+		CB94F54A25D6EC06006C506C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94F54925D6EC06006C506C /* Fonts.swift */; };
 		CBA74423255045F300089E22 /* DesignerImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA74422255045F300089E22 /* DesignerImplementation.swift */; };
 		CBA744262550514D00089E22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA744252550514D00089E22 /* ViewController.swift */; };
 		CBA745772551A9C300089E22 /* CMHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA745742551A9C300089E22 /* CMHUD.swift */; };
@@ -192,7 +193,6 @@
 		CBA7459A2551AE0C00089E22 /* AdaptiveWidthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA745992551AE0C00089E22 /* AdaptiveWidthButton.swift */; };
 		CBA7459E2551AE2600089E22 /* BouncingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA7459D2551AE2600089E22 /* BouncingButton.swift */; };
 		CBA745A22551AE4300089E22 /* TouchSizeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA745A12551AE4300089E22 /* TouchSizeButton.swift */; };
-		CBC6448425D19DA00018CE46 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC6447025D19D9F0018CE46 /* Fonts.swift */; };
 		CBC6448525D19DA00018CE46 /* SF-Pro-Text-UltralightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBC6447225D19DA00018CE46 /* SF-Pro-Text-UltralightItalic.otf */; };
 		CBC6448625D19DA00018CE46 /* SF-Pro-Text-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBC6447325D19DA00018CE46 /* SF-Pro-Text-Heavy.otf */; };
 		CBC6448725D19DA00018CE46 /* SF-Pro-Text-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBC6447425D19DA00018CE46 /* SF-Pro-Text-MediumItalic.otf */; };
@@ -404,6 +404,7 @@
 		CB94F49425D5AF03006C506C /* BaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
 		CB94F49925D5B013006C506C /* BaseScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseScreen.swift; sourceTree = "<group>"; };
 		CB94F4B525D5B0DE006C506C /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB94F54925D6EC06006C506C /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		CBA74422255045F300089E22 /* DesignerImplementation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignerImplementation.swift; sourceTree = "<group>"; };
 		CBA744252550514D00089E22 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CBA745742551A9C300089E22 /* CMHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMHUD.swift; sourceTree = "<group>"; };
@@ -419,7 +420,6 @@
 		CBA745992551AE0C00089E22 /* AdaptiveWidthButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveWidthButton.swift; sourceTree = "<group>"; };
 		CBA7459D2551AE2600089E22 /* BouncingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BouncingButton.swift; sourceTree = "<group>"; };
 		CBA745A12551AE4300089E22 /* TouchSizeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchSizeButton.swift; sourceTree = "<group>"; };
-		CBC6447025D19D9F0018CE46 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fonts.swift; path = "../../../../../../therun-ios/TheRun/Resources/Fonts/Fonts.swift"; sourceTree = "<group>"; };
 		CBC6447225D19DA00018CE46 /* SF-Pro-Text-UltralightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-UltralightItalic.otf"; sourceTree = "<group>"; };
 		CBC6447325D19DA00018CE46 /* SF-Pro-Text-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Heavy.otf"; sourceTree = "<group>"; };
 		CBC6447425D19DA00018CE46 /* SF-Pro-Text-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-MediumItalic.otf"; sourceTree = "<group>"; };
@@ -646,7 +646,7 @@
 		CB1EC6D4254B42F9006ED6BA /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				CBC6447025D19D9F0018CE46 /* Fonts.swift */,
+				CB94F54925D6EC06006C506C /* Fonts.swift */,
 				CBC6447125D19DA00018CE46 /* SF Pro Text */,
 			);
 			path = Fonts;
@@ -2195,7 +2195,7 @@
 				CB3F3097254B7E6500311E5E /* LaunchRouter.swift in Sources */,
 				CB29B788254C1F050036A8EC /* QuickActionAppDelegate.swift in Sources */,
 				CBA745852551AB3300089E22 /* Animation.swift in Sources */,
-				CBC6448425D19DA00018CE46 /* Fonts.swift in Sources */,
+				CB94F54A25D6EC06006C506C /* Fonts.swift in Sources */,
 				CB3F305D254B7A0D00311E5E /* Configuration.swift in Sources */,
 				CB3F2FDF254B6BA000311E5E /* UIElement.swift in Sources */,
 				CB29B789254C1F050036A8EC /* QuickActionUserActivityFactory.swift in Sources */,
