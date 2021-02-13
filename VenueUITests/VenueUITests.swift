@@ -7,6 +7,7 @@
 // swiftlint:disable all
 
 import XCTest
+import Nimble
 
 final class VenueUITests: BaseTest, UIPage {
 
@@ -460,13 +461,160 @@ final class VenueUITests: BaseTest, UIPage {
             welcomeLabel.exists &&
             imageView.exists
         let isButtonEnabled = continueButton.isEnabled
-        let keyboardIsHidden = !mailTextField.isSelected
-        let indicator = activityIndicator
+        let textFieldIsEditing = !mailTextField.isSelected
+        //let indicator = activityIndicator
         XCTAssert(isElementsExist)
         XCTAssert(!isButtonEnabled)
-        XCTAssert(keyboardIsHidden)
-        expectation(for: NSPredicate(format: "exist == 1"), evaluatedWith: indicator, handler: nil)
-        waitForExpectations(timeout: 3, handler: nil)
-        XCTAssert(indicator.exists)
+        XCTAssert(textFieldIsEditing)
+        XCTAssertEqual(app.keyboards.count, 0)
+        //expect(indicator.exists).toEventually(equal(true))
+    }
+
+    /// Скрытие клавиатуры по нажатию вне ее области отображения и не на поле ввода.
+    ///
+    /// **Действия:**
+    /// *1. Запускаем приложение на экране авторизации*
+    /// *2. Нажимаем вне ее области отображения и не на поле ввода.*
+    ///
+    /// **Проверка:**
+    /// *1. Текстовое поле в состоянии is not editing.*                                                              *
+    /// *2. Клавиатура скрыта.*
+    /// *3. Кнопка находится в состоянии disabled.*
+    ///
+    /// Ключ: oyh5fok2cqafudkbl
+    func testSVMR13() {
+
+        /// when
+
+        app.launch()
+        welcomeLabel.tap()
+
+        /// then
+
+        let isButtonEnabled = continueButton.isEnabled
+        let textFieldIsEditing = !mailTextField.isSelected
+        XCTAssert(!isButtonEnabled && textFieldIsEditing)
+        XCTAssertEqual(app.keyboards.count, 0)
+    }
+
+    /// Скрытие клавиатуры по нажатию вне ее области отображения и не на поле ввода.
+    ///
+    /// **Действия:**
+    /// *1. Запускаем приложение на экране авторизации*
+    /// *2. Нажимаем вне ее области отображения и не на поле ввода.*
+    ///
+    /// **Проверка:**
+    /// *1. Текстовое поле в состоянии is not editing.*                                                              *
+    /// *2. Клавиатура скрыта.*
+    /// *3. Кнопка находится в состоянии disabled.*
+    ///
+    /// Ключ: oyh5fok2cqafudkbl
+    func testSVMR14() {
+
+        /// when
+
+        app.launch()
+        app.buttons[Constants.Keyboard.enter.rawValue].tap()
+
+        /// then
+
+        let isButtonEnabled = continueButton.isEnabled
+        let textFieldIsEditing = !mailTextField.isSelected
+        XCTAssert(!isButtonEnabled && textFieldIsEditing)
+        expect(self.app.keyboards.count).toEventually(equal(0))
+    }
+
+    /// Не скрытие клавиатуры по нажатию на поле ввода.
+    ///
+    /// **Действия:**
+    /// *1. Запускаем приложение на экране авторизации*
+    /// *2. Нажимаем на поле ввода.*
+    ///
+    /// **Проверка:**
+    /// *1. Текстовое поле в состоянии is editing.*                                                              *
+    /// *2. Клавиатура не скрыта.*
+    /// *3. Кнопка находится в состоянии disabled.*
+    ///
+    /// Ключ: f9ufkfon6x866byuy
+    func testSVMR15() {
+
+        /// when
+
+        app.launch()
+        mailTextField.tap()
+
+        /// then
+
+        let isButtonEnabled = continueButton.isEnabled
+        let textFieldIsEditing = mailTextField.isSelected
+        XCTAssert(!isButtonEnabled && !textFieldIsEditing)
+        XCTAssertEqual(app.keyboards.count, 1)
+    }
+
+    /// Отображение поля и кнопки continue на дисплеях ipad.
+    ///
+    /// **Действия:**
+    /// *1. Запускаем приложение на экране авторизации*
+    ///
+    /// **Проверка:**
+    /// *1. Есть картинка с лого*
+    /// *2. Есть надпись под картинкой*
+    /// *3. Есть описание над полем ввода*
+    /// *4. Есть поле для ввода с плейсхолдером*
+    /// *5. Есть кнопка продолжения*
+    /// *6. Кнопка по умолчанию находится в состоянии disabled*
+    /// *7. Ширина кнопки continue и поля ввода не больше 370.*
+    ///
+    /// Ключ: f9ufkfon6x866byuy
+    func testSVMR16() {
+
+        /// when
+
+        app.launch()
+
+        /// then
+
+        let isElementsExist = mailTextField.exists &&
+            continueButton.exists &&
+            welcomeLabel.exists &&
+            imageView.exists
+        let isButtonEnabled = continueButton.isEnabled
+        let signInButtonWidthIsCorrect = continueButton.frame.width <= Constants.UI.SignInButton.width.rawValue
+        let mailTextFieldIsCorrect = continueButton.frame.width <= Constants.UI.MailTextField.width.rawValue
+        XCTAssert(isElementsExist && !isButtonEnabled && signInButtonWidthIsCorrect && mailTextFieldIsCorrect)
+    }
+
+    /// Отображение клавиатуры на различных моделях устройств.
+    ///
+    /// **Действия:**
+    /// *1. Запускаем приложение на экране авторизации*
+    ///
+    /// **Проверка:**
+    /// *1. Есть картинка с лого*
+    /// *2. Есть надпись под картинкой*
+    /// *3. Есть описание над полем ввода*
+    /// *4. Есть поле для ввода с плейсхолдером*
+    /// *5. Есть кнопка продолжения*
+    /// *6. Кнопка по умолчанию находится в состоянии disabled*
+    /// *7. Клавиатура не имеет горизонтального пересечения с кнопкой.*
+    ///
+    /// Ключ: nmo0b4mbg3fcxz0h3
+    func testSVMR17() {
+
+        /// when
+
+        app.launch()
+
+        /// then
+
+        let isElementsExist = mailTextField.exists &&
+            continueButton.exists &&
+            welcomeLabel.exists &&
+            imageView.exists
+        let isButtonEnabled = continueButton.isEnabled
+
+
+
+        XCTAssert(isElementsExist && !isButtonEnabled)
     }
 }

@@ -7,6 +7,7 @@
 // swiftlint:disable nesting
 
 import Foundation
+import UIKit
 
 enum Constants: String {
 
@@ -22,6 +23,21 @@ enum Constants: String {
         enum English: String {
             case lowerCase = "qwertyuiopasdfghjklzxcvbnm"
             case upperCase = "QWERTYUIOPASDFGHJKLZXCVBNM"
+        }
+    }
+
+    enum Keyboard: String {
+        case enter = "Return"
+    }
+
+    enum UI {
+
+        enum SignInButton: CGFloat {
+            case width = 370
+        }
+
+        enum MailTextField: CGFloat {
+            case width = 370
         }
     }
 
