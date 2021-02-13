@@ -28,6 +28,10 @@ final class VenueUITests: BaseTest, UIPage {
         image(.headerImageView)
     }
 
+    private var activityIndicator: XCUIElement {
+        activityIndicator(.activityIndicator)
+    }
+
     /// Начальное открытие экрана авторизации (ввода email)
     ///
     /// **Действия:**
@@ -421,5 +425,48 @@ final class VenueUITests: BaseTest, UIPage {
             imageView.exists
         let isButtonEnabled = continueButton.isEnabled
         XCTAssert(isElementsExist && !isButtonEnabled)
+    }
+
+    /// Нажатие на кнопку continue, после ввода корректного email-адреса
+    ///
+    /// **Действия:**
+    /// *1. Запускаем приложение на экране авторизации*
+    /// *2. Вводим в поле для ввода некорректный email (по типу therun@ya.ru)*
+    /// *3. Нажимаем на continue.*
+    ///
+    /// **Проверка:**
+    /// *1. После нажатия кнопка находится в состоянии disabled.*
+    /// *2. Есть спиннер активности.*
+    /// *3. Поле для ввода не доступно для редактирования.*
+    /// *4. Клавиатура скрыта.*
+    ///
+    /// Ключ: n0q5rt1b79s3qkzo9
+    func testSVMR12() {
+
+        /// given
+
+        let test12String = Constants.correctMail.rawValue
+
+        /// when
+
+        app.launch()
+        mailTextField.typeText(test12String)
+        continueButton.tap()
+
+        /// then
+
+        let isElementsExist = mailTextField.exists &&
+            continueButton.exists &&
+            welcomeLabel.exists &&
+            imageView.exists
+        let isButtonEnabled = continueButton.isEnabled
+        let keyboardIsHidden = !mailTextField.isSelected
+        let indicator = activityIndicator
+        XCTAssert(isElementsExist)
+        XCTAssert(!isButtonEnabled)
+        XCTAssert(keyboardIsHidden)
+        expectation(for: NSPredicate(format: "exist == 1"), evaluatedWith: indicator, handler: nil)
+        waitForExpectations(timeout: 3, handler: nil)
+        XCTAssert(indicator.exists)
     }
 }

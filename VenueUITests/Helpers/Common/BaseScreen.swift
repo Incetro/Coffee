@@ -81,6 +81,10 @@ extension UIPage {
         findAll(.activityIndicator)
     }
 
+    func activityIndicator(_ element: UIElementType) -> XCUIElement {
+        activityIndicators[element.accessibilityIdentifier]
+    }
+
     func navigationBar(_ element: UIElementType) -> XCUIElement {
         navigationBars[element.accessibilityIdentifier]
     }

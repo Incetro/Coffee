@@ -244,6 +244,7 @@ extension SignInViewController: SignInViewInput {
         signInButton.isEnabled = false
         loginTextField.rightViewMode = .always
         activityIndicator.startAnimating()
+        testify(activityIndicator, using: .activityIndicator)
     }
 
     func stopIndication() {
