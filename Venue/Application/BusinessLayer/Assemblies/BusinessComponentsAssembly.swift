@@ -18,8 +18,12 @@ final class BusinessComponentsAssembly: CollectableAssembly {
 
     func assemble(inContainer container: Container) {
 
-        container.autoregister(Localizer.self, initializer: LocalizerImplementation.init).inObjectScope(.container)
+        container
+            .autoregister(Localizer.self, initializer: LocalizerImplementation.init)
+            .inObjectScope(.container)
 
-        container.autoregister(AuthService.self, initializer: AuthServiceImplementation.init).inObjectScope(.container)
+        container
+            .autoregister(AuthService.self, initializer: AuthServiceImplementation.init)
+            .inObjectScope(.container)
     }
 }

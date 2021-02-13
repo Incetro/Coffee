@@ -19,8 +19,8 @@ enum Constants {
 
     enum UserDefaultsKeys: String, CaseIterable {
 
-        case language = "appname.language"
-        case notificationRequested = "appname.notifications-request"
+        case language = "venue.language"
+        case notificationRequested = "venue.notifications-request"
 
         var shouldRemoveOnCleaning: Bool {
             switch self {

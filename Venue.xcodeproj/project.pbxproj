@@ -1071,7 +1071,7 @@
 				CBA745702551A86100089E22 /* CMUI */,
 				CB29B76D254C1C8C0036A8EC /* ViewController */,
 				CB29B698254BF2D00036A8EC /* VIPER */,
-				CB3F2FBA254B6ACE00311E5E /* CellController */,
+				CB3F2FBA254B6ACE00311E5E /* CellPresenter */,
 				CB3F2FB4254B6A9C00311E5E /* Paginator */,
 				CB3F2F0E254B610400311E5E /* Extensions */,
 			);
@@ -1188,14 +1188,14 @@
 			path = Paginator;
 			sourceTree = "<group>";
 		};
-		CB3F2FBA254B6ACE00311E5E /* CellController */ = {
+		CB3F2FBA254B6ACE00311E5E /* CellPresenter */ = {
 			isa = PBXGroup;
 			children = (
 				CB3F2FBC254B6AE200311E5E /* CellPresenter.swift */,
 				CB3F2FBB254B6AE200311E5E /* GenericCellPresenter.swift */,
 				CB3F2FC2254B6AE700311E5E /* ReusableCellHolder.swift */,
 			);
-			path = CellController;
+			path = CellPresenter;
 			sourceTree = "<group>";
 		};
 		CB3F2FDC254B6B9600311E5E /* UIPage */ = {

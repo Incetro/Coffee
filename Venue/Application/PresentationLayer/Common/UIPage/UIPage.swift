@@ -29,8 +29,14 @@ protocol UIPage {
     )
 }
 
+// MARK: - Default
+
 extension UIPage {
 
+    /// Mark the given view as testable view
+    /// - Parameters:
+    ///   - view: target view
+    ///   - element: view description
     func testify(_ view: UIAccessibilityIdentification, using element: UIElementType) {
         view.accessibilityIdentifier = element.accessibilityIdentifier
     }
