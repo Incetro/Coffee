@@ -108,9 +108,7 @@ final class SignInViewController: ViewController {
         designer.add(designable: self)
         localizer.add(localizable: self)
         output?.didTriggerViewReadyEvent()
-        testify(welcomeLabel, using: .welcomeLabel)
-        testify(loginTextField, using: .mailTextField)
-        testify(headerImageView, using: .imageView)
+        testify()
         hideKeyboardWhenTappedAround()
     }
 
@@ -331,8 +329,19 @@ extension SignInViewController: KeyboardObservable {
 // MARK: - UIPage
 
 extension SignInViewController: UIPage {
-
     typealias UIElementType = AccessibilityHierarchy.SignIn
+}
+
+// MARK: - Testify
+
+extension SignInViewController {
+
+    /// Mark all alements as testable views
+    func testify() {
+        testify(welcomeLabel, using: .welcomeLabel)
+        testify(loginTextField, using: .mailTextField)
+        testify(headerImageView, using: .headerImageView)
+    }
 }
 
 // MARK: - LayoutConstants
