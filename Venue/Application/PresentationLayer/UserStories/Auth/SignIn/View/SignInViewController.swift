@@ -341,6 +341,7 @@ extension SignInViewController {
         testify(welcomeLabel, using: .welcomeLabel)
         testify(loginTextField, using: .mailTextField)
         testify(headerImageView, using: .headerImageView)
+        testify(signInButton, using: .signInButton)
     }
 }
 

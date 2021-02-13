@@ -16,7 +16,7 @@ enum AccessibilityHierarchy {
 
     enum SignIn: String, UIElement, RawRepresentable {
         case mailTextField = "sign-in.mail-text-field"
-        case continueButton = "sign-in.continue-button"
+        case signInButton = "sign-in.continue-button"
         case welcomeLabel = "sign-in.welcome-label"
         case headerImageView = "sign-in.header-image-view"
     }
