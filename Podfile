@@ -24,6 +24,11 @@ target 'Venue' do
   pod 'InputMask'
 end
 
+target 'VenueUITests' do
+  use_frameworks!
+  pod "Nimble"
+end
+
 post_install do |installer|
   # This removes the warning about swift conversion, hopefuly forever!
   installer.pods_project.root_object.attributes['LastSwiftMigration'] = 9999

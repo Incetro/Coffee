@@ -24,6 +24,11 @@
 		CB1EC6EA254B43B5006ED6BA /* appname-structured-assets.stencil in Resources */ = {isa = PBXBuildFile; fileRef = CB1EC6E9254B43B5006ED6BA /* appname-structured-assets.stencil */; };
 		CB1EC6EF254B43FD006ED6BA /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB1EC6EE254B43FD006ED6BA /* SplashScreen.storyboard */; };
 		CB1EC6F5254B45E7006ED6BA /* appname-structured-strings.stencil in Resources */ = {isa = PBXBuildFile; fileRef = CB1EC6F4254B45E7006ED6BA /* appname-structured-strings.stencil */; };
+		CB24477225D808F2001395EE /* VenueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB24476825D808F2001395EE /* VenueUITests.swift */; };
+		CB24477325D808F2001395EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB24476A25D808F2001395EE /* Constants.swift */; };
+		CB24477425D808F2001395EE /* XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB24476D25D808F2001395EE /* XCUIElement.swift */; };
+		CB24477525D808F2001395EE /* BaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB24476F25D808F2001395EE /* BaseScreen.swift */; };
+		CB24477625D808F2001395EE /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB24477025D808F2001395EE /* BaseTest.swift */; };
 		CB29B6BD254BF2D00036A8EC /* InteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29B69A254BF2D00036A8EC /* InteractorOutput.swift */; };
 		CB29B6BE254BF2D00036A8EC /* ViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29B69B254BF2D00036A8EC /* ViewOutput.swift */; };
 		CB29B6BF254BF2D00036A8EC /* RouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29B69C254BF2D00036A8EC /* RouterInput.swift */; };
@@ -206,6 +211,7 @@
 		CBC6449425D19DA00018CE46 /* SF-Pro-Text-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBC6448125D19DA00018CE46 /* SF-Pro-Text-LightItalic.otf */; };
 		CBC6449525D19DA00018CE46 /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBC6448225D19DA00018CE46 /* SF-Pro-Text-Medium.otf */; };
 		CBC6449625D19DA00018CE46 /* SF-Pro-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBC6448325D19DA00018CE46 /* SF-Pro-Text-SemiboldItalic.otf */; };
+		F112A8A348CCB6927EBF4B17 /* Pods_VenueUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57E25AF356AF483D3F4047BF /* Pods_VenueUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,7 +228,11 @@
 		332D9010254D5BBE00C6C46F /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		4791B9CEC8E71BC127C1B0ED /* Pods-Venue.devolopment.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venue.devolopment.xcconfig"; path = "Target Support Files/Pods-Venue/Pods-Venue.devolopment.xcconfig"; sourceTree = "<group>"; };
 		4A1848F52129A21E53A53DE4 /* Pods_Venue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Venue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57E25AF356AF483D3F4047BF /* Pods_VenueUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VenueUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6725E7B1B848553981A61D4D /* Pods-VenueUITests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenueUITests.staging.xcconfig"; path = "Target Support Files/Pods-VenueUITests/Pods-VenueUITests.staging.xcconfig"; sourceTree = "<group>"; };
 		67C4453514DD38B4859C93E4 /* Pods-Venue.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venue.staging.xcconfig"; path = "Target Support Files/Pods-Venue/Pods-Venue.staging.xcconfig"; sourceTree = "<group>"; };
+		69917E79485B8E72DD830B36 /* Pods-VenueUITests.devolopment.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenueUITests.devolopment.xcconfig"; path = "Target Support Files/Pods-VenueUITests/Pods-VenueUITests.devolopment.xcconfig"; sourceTree = "<group>"; };
+		71DE5B38885BC391EB196A7A /* Pods-VenueUITests.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenueUITests.production.xcconfig"; path = "Target Support Files/Pods-VenueUITests/Pods-VenueUITests.production.xcconfig"; sourceTree = "<group>"; };
 		CB1EC635254B1E1D006ED6BA /* Venue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB1EC642254B1E1D006ED6BA /* Venue.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Venue.xcdatamodel; sourceTree = "<group>"; };
 		CB1EC644254B1E1E006ED6BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -240,6 +250,12 @@
 		CB1EC6E9254B43B5006ED6BA /* appname-structured-assets.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "appname-structured-assets.stencil"; sourceTree = "<group>"; };
 		CB1EC6EE254B43FD006ED6BA /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		CB1EC6F4254B45E7006ED6BA /* appname-structured-strings.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "appname-structured-strings.stencil"; sourceTree = "<group>"; };
+		CB24476825D808F2001395EE /* VenueUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueUITests.swift; sourceTree = "<group>"; };
+		CB24476A25D808F2001395EE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CB24476D25D808F2001395EE /* XCUIElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCUIElement.swift; sourceTree = "<group>"; };
+		CB24476F25D808F2001395EE /* BaseScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseScreen.swift; sourceTree = "<group>"; };
+		CB24477025D808F2001395EE /* BaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
+		CB24477125D808F2001395EE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB29B69A254BF2D00036A8EC /* InteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractorOutput.swift; sourceTree = "<group>"; };
 		CB29B69B254BF2D00036A8EC /* ViewOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewOutput.swift; sourceTree = "<group>"; };
 		CB29B69C254BF2D00036A8EC /* RouterInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterInput.swift; sourceTree = "<group>"; };
@@ -441,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB94F4B625D5B0DE006C506C /* Nimble.framework in Frameworks */,
+				F112A8A348CCB6927EBF4B17 /* Pods_VenueUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +470,9 @@
 				4791B9CEC8E71BC127C1B0ED /* Pods-Venue.devolopment.xcconfig */,
 				CF80DB5CF52F23BACE77DA4C /* Pods-Venue.production.xcconfig */,
 				67C4453514DD38B4859C93E4 /* Pods-Venue.staging.xcconfig */,
+				69917E79485B8E72DD830B36 /* Pods-VenueUITests.devolopment.xcconfig */,
+				71DE5B38885BC391EB196A7A /* Pods-VenueUITests.production.xcconfig */,
+				6725E7B1B848553981A61D4D /* Pods-VenueUITests.staging.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -461,6 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				CB1EC637254B1E1D006ED6BA /* Venue */,
+				CB24476725D808F2001395EE /* VenueUITests */,
 				CB1EC636254B1E1D006ED6BA /* Products */,
 				1624AD43AA7A8C146EC98626 /* Pods */,
 				DC881B0915419F6D62D8A7FA /* Frameworks */,
@@ -653,6 +674,51 @@
 				CB29B6D7254BFF160036A8EC /* Localization.swift */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		CB24476725D808F2001395EE /* VenueUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CB24476825D808F2001395EE /* VenueUITests.swift */,
+				CB24476925D808F2001395EE /* Constants */,
+				CB24476B25D808F2001395EE /* Helpers */,
+				CB24477125D808F2001395EE /* Info.plist */,
+			);
+			path = VenueUITests;
+			sourceTree = "<group>";
+		};
+		CB24476925D808F2001395EE /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				CB24476A25D808F2001395EE /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		CB24476B25D808F2001395EE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CB24476C25D808F2001395EE /* Extensions */,
+				CB24476E25D808F2001395EE /* Common */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CB24476C25D808F2001395EE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CB24476D25D808F2001395EE /* XCUIElement.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CB24476E25D808F2001395EE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CB24476F25D808F2001395EE /* BaseScreen.swift */,
+				CB24477025D808F2001395EE /* BaseTest.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		CB29B698254BF2D00036A8EC /* VIPER */ = {
@@ -1798,6 +1864,7 @@
 			children = (
 				CB94F4B525D5B0DE006C506C /* Nimble.framework */,
 				4A1848F52129A21E53A53DE4 /* Pods_Venue.framework */,
+				57E25AF356AF483D3F4047BF /* Pods_VenueUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1830,9 +1897,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB7504E525D450A70083389F /* Build configuration list for PBXNativeTarget "VenueUITests" */;
 			buildPhases = (
+				5879823E0DFC7F281FE4CD0C /* [CP] Check Pods Manifest.lock */,
 				CB7504D725D450A70083389F /* Sources */,
 				CB7504D825D450A70083389F /* Frameworks */,
 				CB7504D925D450A70083389F /* Resources */,
+				DDF5B4C717870A9512DAFB8F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1975,6 +2044,28 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		5879823E0DFC7F281FE4CD0C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VenueUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7F124C58F79C2FDA7382481A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1995,6 +2086,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDF5B4C717870A9512DAFB8F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VenueUITests/Pods-VenueUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VenueUITests/Pods-VenueUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VenueUITests/Pods-VenueUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F1089309EF7A2F1FF67FE5A4 /* [CP] Embed Pods Frameworks */ = {
@@ -2185,10 +2293,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB24477425D808F2001395EE /* XCUIElement.swift in Sources */,
 				CB94F49125D5AB6A006C506C /* UIElement.swift in Sources */,
+				CB24477225D808F2001395EE /* VenueUITests.swift in Sources */,
 				CB94F48225D59DD5006C506C /* Optional.swift in Sources */,
+				CB24477625D808F2001395EE /* BaseTest.swift in Sources */,
 				CB94F47F25D59D9B006C506C /* Randoms.swift in Sources */,
 				CB94F48825D5A097006C506C /* AccessibilityHierarchy.swift in Sources */,
+				CB24477525D808F2001395EE /* BaseScreen.swift in Sources */,
+				CB24477325D808F2001395EE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2466,6 +2579,7 @@
 		};
 		CB7504E225D450A70083389F /* Devolopment */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69917E79485B8E72DD830B36 /* Pods-VenueUITests.devolopment.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2540,6 +2654,7 @@
 		};
 		CB7504E325D450A70083389F /* Production */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71DE5B38885BC391EB196A7A /* Pods-VenueUITests.production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2608,6 +2723,7 @@
 		};
 		CB7504E425D450A70083389F /* Staging */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6725E7B1B848553981A61D4D /* Pods-VenueUITests.staging.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
