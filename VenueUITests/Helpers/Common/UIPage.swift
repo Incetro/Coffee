@@ -41,6 +41,10 @@ extension UIPage {
         findAll(.textField)
     }
 
+    var scrollViews: XCUIElementQuery {
+        findAll(.scrollView)
+    }
+
     var labels: XCUIElementQuery {
         findAll(.staticText)
     }
@@ -111,6 +115,10 @@ extension UIPage {
 
     func label(_ element: UIElementType) -> XCUIElement {
         labels[element.accessibilityIdentifier]
+    }
+
+    func scrollView(_ element: UIElementType) -> XCUIElement {
+        scrollViews[element.accessibilityIdentifier]
     }
 
     func alert(_ element: UIElementType) -> XCUIElement {
@@ -199,6 +207,13 @@ extension UIPage {
 
     func picker(_ element: UIElementType) -> XCUIElement {
         pickers[element.accessibilityIdentifier]
+    }
+
+    func waitForElementToAppear(_ element: XCUIElement, timeout: Double = 5, necessary: Bool = true, file: String = #file, line: UInt = #line) {
+        let existsPredicate = NSPredicate(format: "exists == true")
+        let expectation = uiTest.expectation(for: existsPredicate, evaluatedWith: element)
+        _ = XCTWaiter.wait(for: [expectation], timeout: timeout)
+        expectation.fulfill()
     }
 
     // MARK: - Common

@@ -27,7 +27,7 @@ enum Constants: String {
     }
 
     enum Keyboard: String {
-        case enter = "Return"
+        case enter = "return"
     }
 
     enum UI {

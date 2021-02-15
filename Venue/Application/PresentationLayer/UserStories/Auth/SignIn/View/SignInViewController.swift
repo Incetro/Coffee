@@ -343,6 +343,8 @@ extension SignInViewController {
         testify(loginTextField, using: .mailTextField)
         testify(headerImageView, using: .headerImageView)
         testify(signInButton, using: .signInButton)
+        testify(stackView, using: .stackView)
+        testify(scrollView, using: .scrollView)
     }
 }
 

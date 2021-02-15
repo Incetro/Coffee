@@ -9,29 +9,9 @@
 import XCTest
 import Nimble
 
-final class VenueUITests: BaseTest, UIPage {
+final class VenueUITests: BaseTest {
 
-    typealias UIElementType = AccessibilityHierarchy.SignIn
-
-    private var mailTextField: XCUIElement {
-        textField(.mailTextField)
-    }
-
-    private var continueButton: XCUIElement {
-        button(.signInButton)
-    }
-
-    private var welcomeLabel: XCUIElement {
-        label(.welcomeLabel)
-    }
-
-    private var imageView: XCUIElement {
-        image(.headerImageView)
-    }
-
-    private var activityIndicator: XCUIElement {
-        activityIndicator(.activityIndicator)
-    }
+    private lazy var signInPage = SignInPage(uiTest: self)
 
     /// Начальное открытие экрана авторизации (ввода email)
     ///
@@ -50,16 +30,14 @@ final class VenueUITests: BaseTest, UIPage {
     func testSVMR1() {
 
         /// when
-        app.launch()
+        
+        signInPage.open()
 
         /// then
 
-        let isElementsExist = mailTextField.exists &&
-            continueButton.exists &&
-            welcomeLabel.exists &&
-            imageView.exists
-        let isButtonEnabled = continueButton.isEnabled
-        XCTAssert(isElementsExist && !isButtonEnabled)
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: false)
     }
 
     /// Ввод 1-2 букв в поле для ввода email
@@ -82,21 +60,19 @@ final class VenueUITests: BaseTest, UIPage {
         /// given
 
         let characters = Constants.Letters.English.lowerCase.rawValue
-        let twoCharString = String.random(withCharactersInString: characters, minimumLength: 1, maximumLength: 2)
+        let login = String.random(withCharactersInString: characters, minimumLength: 1, maximumLength: 2)
 
         /// when
 
-        app.launch()
-        mailTextField.typeText(twoCharString)
+        signInPage
+            .open()
+            .typeLogin(login)
 
         /// then
 
-        let isElementsExist = mailTextField.exists &&
-            continueButton.exists &&
-            welcomeLabel.exists &&
-            imageView.exists
-        let isButtonEnabled = continueButton.isEnabled
-        XCTAssert(isElementsExist && !isButtonEnabled)
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: false)
     }
 
     /// Ввод 1-18 цифр в поле для ввода email
@@ -119,21 +95,19 @@ final class VenueUITests: BaseTest, UIPage {
         /// given
 
         let characters = Constants.digits.rawValue
-        let digitString = String.random(withCharactersInString: characters, minimumLength: 1, maximumLength: 18)
+        let login = String.random(withCharactersInString: characters, minimumLength: 1, maximumLength: 18)
 
         /// when
 
-        app.launch()
-        mailTextField.typeText(digitString)
+        signInPage
+            .open()
+            .typeLogin(login)
 
         /// then
 
-        let isElementsExist = mailTextField.exists &&
-            continueButton.exists &&
-            welcomeLabel.exists &&
-            imageView.exists
-        let isButtonEnabled = continueButton.isEnabled
-        XCTAssert(isElementsExist && !isButtonEnabled)
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: false)
     }
 
     /// Ввод 1-18 спец символов в поле для ввода email
@@ -156,21 +130,19 @@ final class VenueUITests: BaseTest, UIPage {
         /// given
 
         let characters = Constants.specialSybols.rawValue
-        let cpecialSymbolsString = String.random(withCharactersInString: characters, minimumLength: 1, maximumLength: 18)
+        let login = String.random(withCharactersInString: characters, minimumLength: 1, maximumLength: 18)
 
         /// when
 
-        app.launch()
-        mailTextField.typeText(cpecialSymbolsString)
+        signInPage
+            .open()
+            .typeLogin(login)
 
         /// then
 
-        let isElementsExist = mailTextField.exists &&
-            continueButton.exists &&
-            welcomeLabel.exists &&
-            imageView.exists
-        let isButtonEnabled = continueButton.isEnabled
-        XCTAssert(isElementsExist && !isButtonEnabled)
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: false)
     }
 
     /// Ввод в поле email 1 буквы с символом _
@@ -193,21 +165,19 @@ final class VenueUITests: BaseTest, UIPage {
         /// given
 
         let characters = String.random(withCharactersInString: Constants.englishTwoCases.rawValue, ofLength: 1) + Constants.test5.rawValue
-        let test5String = String.random(withCharactersInString: characters, ofLength: 2)
+        let login = String.random(withCharactersInString: characters, ofLength: 2)
         
         /// when
 
-        app.launch()
-        mailTextField.typeText(test5String)
+        signInPage
+            .open()
+            .typeLogin(login)
 
         /// then
 
-        let isElementsExist = mailTextField.exists &&
-            continueButton.exists &&
-            welcomeLabel.exists &&
-            imageView.exists
-        let isButtonEnabled = continueButton.isEnabled
-        XCTAssert(isElementsExist && !isButtonEnabled)
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: false)
     }
 
     /// Ввод цифры и 3 и более букв (включая символ _ ) в поле для ввода email
@@ -231,21 +201,19 @@ final class VenueUITests: BaseTest, UIPage {
 
         let digits = String.random(withCharactersInString:Constants.digits.rawValue ,ofLength: 1)
         let characters = String.random(withCharactersInString: Constants.englishTwoCases.rawValue, ofLength: 5) + Constants.test6.rawValue
-        let test6String = String.random(withCharactersInString: characters + digits, ofLength: 7)
+        let login = String.random(withCharactersInString: characters + digits, ofLength: 7)
 
         /// when
 
-        app.launch()
-        mailTextField.typeText(test6String)
+        signInPage
+            .open()
+            .typeLogin(login)
 
         /// then
 
-        let isElementsExist = mailTextField.exists &&
-            continueButton.exists &&
-            welcomeLabel.exists &&
-            imageView.exists
-        let isButtonEnabled = continueButton.isEnabled
-        XCTAssert(isElementsExist && !isButtonEnabled)
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: false)
     }
 
     /// Ввод корректного email-адреса
@@ -267,21 +235,19 @@ final class VenueUITests: BaseTest, UIPage {
 
         /// given
 
-        let test7String = Constants.correctMail.rawValue
+        let login = Constants.correctMail.rawValue
 
         /// when
 
-        app.launch()
-        mailTextField.typeText(test7String)
+        signInPage
+            .open()
+            .typeLogin(login)
 
         /// then
 
-        let isElementsExist = mailTextField.exists &&
-            continueButton.exists &&
-            welcomeLabel.exists &&
-            imageView.exists
-        let isButtonEnabled = continueButton.isEnabled
-        XCTAssert(isElementsExist && isButtonEnabled)
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: true)
     }
 
     /// Ввод некорректного email-адреса (therun@)
@@ -303,21 +269,19 @@ final class VenueUITests: BaseTest, UIPage {
 
         /// given
 
-        let test8String = Constants.test8.rawValue
+        let login = Constants.test8.rawValue
 
         /// when
 
-        app.launch()
-        mailTextField.typeText(test8String)
+        signInPage
+            .open()
+            .typeLogin(login)
 
         /// then
 
-        let isElementsExist = mailTextField.exists &&
-            continueButton.exists &&
-            welcomeLabel.exists &&
-            imageView.exists
-        let isButtonEnabled = continueButton.isEnabled
-        XCTAssert(isElementsExist && !isButtonEnabled)
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: false)
     }
 
     /// Ввод некорректного email-адреса (therun@ya)
@@ -339,21 +303,19 @@ final class VenueUITests: BaseTest, UIPage {
 
         /// given
 
-        let test9String = Constants.test9.rawValue
+        let login = Constants.test9.rawValue
 
         /// when
 
-        app.launch()
-        mailTextField.typeText(test9String)
+        signInPage
+            .open()
+            .typeLogin(login)
 
         /// then
 
-        let isElementsExist = mailTextField.exists &&
-            continueButton.exists &&
-            welcomeLabel.exists &&
-            imageView.exists
-        let isButtonEnabled = continueButton.isEnabled
-        XCTAssert(isElementsExist && !isButtonEnabled)
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: false)
     }
 
     /// Ввод некорректного email-адреса (therun@ya.)
@@ -375,21 +337,19 @@ final class VenueUITests: BaseTest, UIPage {
 
         /// given
 
-        let test10String = Constants.test10.rawValue
+        let login = Constants.test10.rawValue
 
         /// when
 
-        app.launch()
-        mailTextField.typeText(test10String)
+        signInPage
+            .open()
+            .typeLogin(login)
 
         /// then
 
-        let isElementsExist = mailTextField.exists &&
-            continueButton.exists &&
-            welcomeLabel.exists &&
-            imageView.exists
-        let isButtonEnabled = continueButton.isEnabled
-        XCTAssert(isElementsExist && !isButtonEnabled)
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: false)
     }
 
     /// Ввод некорректного email-адреса (therun@ya.r)
@@ -411,21 +371,19 @@ final class VenueUITests: BaseTest, UIPage {
 
         /// given
 
-        let test11String = Constants.test11.rawValue
+        let login = Constants.test11.rawValue
 
         /// when
 
-        app.launch()
-        mailTextField.typeText(test11String)
+        signInPage
+            .open()
+            .typeLogin(login)
 
         /// then
 
-        let isElementsExist = mailTextField.exists &&
-            continueButton.exists &&
-            welcomeLabel.exists &&
-            imageView.exists
-        let isButtonEnabled = continueButton.isEnabled
-        XCTAssert(isElementsExist && !isButtonEnabled)
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: false)
     }
 
     /// Нажатие на кнопку continue, после ввода корректного email-адреса
@@ -446,28 +404,30 @@ final class VenueUITests: BaseTest, UIPage {
 
         /// given
 
-        let test12String = Constants.correctMail.rawValue
+        let login = Constants.correctMail.rawValue
 
         /// when
 
-        app.launch()
-        mailTextField.typeText(test12String)
-        continueButton.tap()
+        signInPage
+            .open()
+            .typeLogin(login)
+            .tapContinueButton()
 
         /// then
 
-        let isElementsExist = mailTextField.exists &&
-            continueButton.exists &&
-            welcomeLabel.exists &&
-            imageView.exists
-        let isButtonEnabled = continueButton.isEnabled
-        let textFieldIsEditing = !mailTextField.isSelected
-        //let indicator = activityIndicator
-        XCTAssert(isElementsExist)
-        XCTAssert(!isButtonEnabled)
-        XCTAssert(textFieldIsEditing)
-        XCTAssertEqual(app.keyboards.count, 0)
-        //expect(indicator.exists).toEventually(equal(true))
+//        waitForElementToAppear(activityIndicator)
+//        print("!!!!\(activityIndicator.screenshot())")
+//        XCTAssert(activityIndicator.exists)
+//        print(app.debugDescription)
+
+//        XCTAssert(activityIndicator.exists)
+//        expect(self.activityIndicator.exists).toEventually(equal(true),timeout: DispatchTimeInterval.seconds(3))
+//        print("!!!!\(app.descendants(matching: .activityIndicator).count)")
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: false)
+            .verifyTextFieldEditing(to: false)
+            .verifyKeyboard(to: false)
     }
 
     /// Скрытие клавиатуры по нажатию вне ее области отображения и не на поле ввода.
@@ -486,15 +446,16 @@ final class VenueUITests: BaseTest, UIPage {
 
         /// when
 
-        app.launch()
-        welcomeLabel.tap()
+        signInPage
+            .open()
+            .tapWelcomeLabel()
 
         /// then
-
-        let isButtonEnabled = continueButton.isEnabled
-        let textFieldIsEditing = !mailTextField.isSelected
-        XCTAssert(!isButtonEnabled && textFieldIsEditing)
-        XCTAssertEqual(app.keyboards.count, 0)
+        
+        signInPage
+            .verifyContinueButton(to: false)
+            .verifyTextFieldEditing(to: false)
+            .verifyKeyboard(to: false)
     }
 
     /// Скрытие клавиатуры по нажатию вне ее области отображения и не на поле ввода.
@@ -513,15 +474,16 @@ final class VenueUITests: BaseTest, UIPage {
 
         /// when
 
-        app.launch()
-        app.buttons[Constants.Keyboard.enter.rawValue].tap()
+        signInPage
+            .open()
+            .tapKeyboardButton(.enter)
 
         /// then
 
-        let isButtonEnabled = continueButton.isEnabled
-        let textFieldIsEditing = !mailTextField.isSelected
-        XCTAssert(!isButtonEnabled && textFieldIsEditing)
-        expect(self.app.keyboards.count).toEventually(equal(0))
+        signInPage
+            .verifyContinueButton(to: false)
+            .verifyTextFieldEditing(to: false)
+            .verifyKeyboard(to: false)
     }
 
     /// Не скрытие клавиатуры по нажатию на поле ввода.
@@ -531,7 +493,7 @@ final class VenueUITests: BaseTest, UIPage {
     /// *2. Нажимаем на поле ввода.*
     ///
     /// **Проверка:**
-    /// *1. Текстовое поле в состоянии is editing.*                                                              *
+    /// *1. Текстовое поле в состоянии is not editing.*
     /// *2. Клавиатура не скрыта.*
     /// *3. Кнопка находится в состоянии disabled.*
     ///
@@ -540,15 +502,16 @@ final class VenueUITests: BaseTest, UIPage {
 
         /// when
 
-        app.launch()
-        mailTextField.tap()
+        signInPage
+            .open()
+            .tapLogin()
 
         /// then
 
-        let isButtonEnabled = continueButton.isEnabled
-        let textFieldIsEditing = mailTextField.isSelected
-        XCTAssert(!isButtonEnabled && !textFieldIsEditing)
-        XCTAssertEqual(app.keyboards.count, 1)
+        signInPage
+            .verifyContinueButton(to: false)
+            .verifyTextFieldEditing(to: false)
+            .verifyKeyboard(to: true)
     }
 
     /// Отображение поля и кнопки continue на дисплеях ipad.
@@ -570,18 +533,15 @@ final class VenueUITests: BaseTest, UIPage {
 
         /// when
 
-        app.launch()
+        signInPage.open()
 
         /// then
 
-        let isElementsExist = mailTextField.exists &&
-            continueButton.exists &&
-            welcomeLabel.exists &&
-            imageView.exists
-        let isButtonEnabled = continueButton.isEnabled
-        let signInButtonWidthIsCorrect = continueButton.frame.width <= Constants.UI.SignInButton.width.rawValue
-        let mailTextFieldIsCorrect = continueButton.frame.width <= Constants.UI.MailTextField.width.rawValue
-        XCTAssert(isElementsExist && !isButtonEnabled && signInButtonWidthIsCorrect && mailTextFieldIsCorrect)
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: false)
+            .verifyContinueButtonWidth()
+            .verifyLoginTextFieldWidth()
     }
 
     /// Отображение клавиатуры на различных моделях устройств.
@@ -603,18 +563,13 @@ final class VenueUITests: BaseTest, UIPage {
 
         /// when
 
-        app.launch()
+        signInPage.open()
 
         /// then
 
-        let isElementsExist = mailTextField.exists &&
-            continueButton.exists &&
-            welcomeLabel.exists &&
-            imageView.exists
-        let isButtonEnabled = continueButton.isEnabled
-
-
-
-        XCTAssert(isElementsExist && !isButtonEnabled)
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: false)
+            .verifyKeyboardIntersectionWithStack(to: false)
     }
 }

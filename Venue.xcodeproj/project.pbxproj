@@ -27,8 +27,10 @@
 		CB24477225D808F2001395EE /* VenueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB24476825D808F2001395EE /* VenueUITests.swift */; };
 		CB24477325D808F2001395EE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB24476A25D808F2001395EE /* Constants.swift */; };
 		CB24477425D808F2001395EE /* XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB24476D25D808F2001395EE /* XCUIElement.swift */; };
-		CB24477525D808F2001395EE /* BaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB24476F25D808F2001395EE /* BaseScreen.swift */; };
+		CB24477525D808F2001395EE /* UIPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB24476F25D808F2001395EE /* UIPage.swift */; };
 		CB24477625D808F2001395EE /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB24477025D808F2001395EE /* BaseTest.swift */; };
+		CB2447BD25DAD7B6001395EE /* SignInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2447BC25DAD7B6001395EE /* SignInPage.swift */; };
+		CB2447CB25DAE6A4001395EE /* BasePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2447CA25DAE6A4001395EE /* BasePage.swift */; };
 		CB29B6BD254BF2D00036A8EC /* InteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29B69A254BF2D00036A8EC /* InteractorOutput.swift */; };
 		CB29B6BE254BF2D00036A8EC /* ViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29B69B254BF2D00036A8EC /* ViewOutput.swift */; };
 		CB29B6BF254BF2D00036A8EC /* RouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB29B69C254BF2D00036A8EC /* RouterInput.swift */; };
@@ -253,9 +255,11 @@
 		CB24476825D808F2001395EE /* VenueUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueUITests.swift; sourceTree = "<group>"; };
 		CB24476A25D808F2001395EE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CB24476D25D808F2001395EE /* XCUIElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCUIElement.swift; sourceTree = "<group>"; };
-		CB24476F25D808F2001395EE /* BaseScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseScreen.swift; sourceTree = "<group>"; };
+		CB24476F25D808F2001395EE /* UIPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPage.swift; sourceTree = "<group>"; };
 		CB24477025D808F2001395EE /* BaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
 		CB24477125D808F2001395EE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB2447BC25DAD7B6001395EE /* SignInPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPage.swift; sourceTree = "<group>"; };
+		CB2447CA25DAE6A4001395EE /* BasePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePage.swift; sourceTree = "<group>"; };
 		CB29B69A254BF2D00036A8EC /* InteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractorOutput.swift; sourceTree = "<group>"; };
 		CB29B69B254BF2D00036A8EC /* ViewOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewOutput.swift; sourceTree = "<group>"; };
 		CB29B69C254BF2D00036A8EC /* RouterInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterInput.swift; sourceTree = "<group>"; };
@@ -679,7 +683,8 @@
 		CB24476725D808F2001395EE /* VenueUITests */ = {
 			isa = PBXGroup;
 			children = (
-				CB24476825D808F2001395EE /* VenueUITests.swift */,
+				CB2447CF25DAFC0D001395EE /* Tests */,
+				CB2447CE25DAFC00001395EE /* Pages */,
 				CB24476925D808F2001395EE /* Constants */,
 				CB24476B25D808F2001395EE /* Helpers */,
 				CB24477125D808F2001395EE /* Info.plist */,
@@ -715,10 +720,27 @@
 		CB24476E25D808F2001395EE /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CB24476F25D808F2001395EE /* BaseScreen.swift */,
+				CB24476F25D808F2001395EE /* UIPage.swift */,
 				CB24477025D808F2001395EE /* BaseTest.swift */,
+				CB2447CA25DAE6A4001395EE /* BasePage.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		CB2447CE25DAFC00001395EE /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				CB2447BC25DAD7B6001395EE /* SignInPage.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		CB2447CF25DAFC0D001395EE /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CB24476825D808F2001395EE /* VenueUITests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		CB29B698254BF2D00036A8EC /* VIPER */ = {
@@ -2297,10 +2319,12 @@
 				CB94F49125D5AB6A006C506C /* UIElement.swift in Sources */,
 				CB24477225D808F2001395EE /* VenueUITests.swift in Sources */,
 				CB94F48225D59DD5006C506C /* Optional.swift in Sources */,
+				CB2447BD25DAD7B6001395EE /* SignInPage.swift in Sources */,
+				CB2447CB25DAE6A4001395EE /* BasePage.swift in Sources */,
 				CB24477625D808F2001395EE /* BaseTest.swift in Sources */,
 				CB94F47F25D59D9B006C506C /* Randoms.swift in Sources */,
 				CB94F48825D5A097006C506C /* AccessibilityHierarchy.swift in Sources */,
-				CB24477525D808F2001395EE /* BaseScreen.swift in Sources */,
+				CB24477525D808F2001395EE /* UIPage.swift in Sources */,
 				CB24477325D808F2001395EE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

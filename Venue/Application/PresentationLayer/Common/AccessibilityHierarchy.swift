@@ -20,5 +20,7 @@ enum AccessibilityHierarchy {
         case welcomeLabel = "sign-in.welcome-label"
         case headerImageView = "sign-in.header-image-view"
         case activityIndicator = "sign-in.activity-indicator"
+        case stackView = "sign-in.stack-view"
+        case scrollView = "sign-in.scroll-view"
     }
 }
