@@ -31,7 +31,7 @@ final class SignInPage: BasePage<AccessibilityHierarchy.SignIn> {
     }
 
     private var activityIndicator: XCUIElement {
-        activityIndicator(.activityIndicator)
+        other(.activityIndicator)
     }
 
     private var stackView: XCUIElement {
@@ -103,8 +103,7 @@ final class SignInPage: BasePage<AccessibilityHierarchy.SignIn> {
 
     @discardableResult
     func verifyIndicatorExistance(to value: Bool) -> SignInPage {
-        expect(self.activityIndicator.exists)
-            .toEventually(equal(value), timeout: DispatchTimeInterval.seconds(5))
+        expect(self.activityIndicator.exists).to(equal(value))
         return self
     }
 

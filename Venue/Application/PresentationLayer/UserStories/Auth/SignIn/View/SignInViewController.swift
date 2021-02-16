@@ -45,6 +45,7 @@ final class SignInViewController: ViewController {
                 height: LayoutConstants.loginTextFieldHeight
             )
         )
+        activityIndicatorWrapper.isAccessibilityElement = true
         activityIndicatorWrapper.addSubview(activityIndicator)
         activityIndicator.center = .init(
             x: activityIndicatorWrapper.frame.width / 2,
@@ -335,7 +336,7 @@ extension SignInViewController {
         testify(signInButton, using: .signInButton)
         testify(stackView, using: .stackView)
         testify(scrollView, using: .scrollView)
-        testify(activityIndicator, using: .activityIndicator)
+        testify(activityIndicator.superview.unwrap(), using: .activityIndicator)
     }
 }
 

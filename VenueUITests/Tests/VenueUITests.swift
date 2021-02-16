@@ -410,7 +410,7 @@ final class VenueUITests: BaseTest {
             .verifyStackElementsExistence(to: true)
             .verifyContinueButton(to: false)
             .verifyKeyboard(to: false)
-//            .verifyIndicatorExistance(to: true)
+            .verifyIndicatorExistance(to: true)
             .verifyTextFieldEnable(to: false)
     }
 
@@ -451,7 +451,7 @@ final class VenueUITests: BaseTest {
     /// *2. Нажимаем на клавишу enter клавиатуры.*
     ///
     /// **Проверка:**
-    /// *1. Текстовое поле в состоянии is not editing.*                                                              *
+    /// *1. Текстовое поле в состоянии is not
     /// *2. Клавиатура скрыта.*
     /// *3. Кнопка находится в состоянии disabled.*
     ///
