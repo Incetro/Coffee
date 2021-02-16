@@ -47,7 +47,7 @@ enum Constants: String {
 
     case specialSybols = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~"
 
-    case test5, test6 = "_"
+    case test5, test6, test18 = "_"
     case test8 = "therun@"
     case test9 = "therun@ya"
     case test10 = "therun@ya."

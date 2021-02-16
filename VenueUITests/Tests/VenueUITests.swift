@@ -89,7 +89,7 @@ final class VenueUITests: BaseTest {
     /// *5. Есть кнопка продолжения*
     /// *6. Кнопка находится в состоянии disabled*
     ///
-    /// Ключ: 15kvo5v6udc4ddbth
+    /// Ключ: l5kvo5v6udc4ddbth
     func testSVMR3() {
 
         /// given
@@ -163,7 +163,7 @@ final class VenueUITests: BaseTest {
         /// given
 
         let characters = String.random(withCharactersInString: Constants.englishTwoCases.rawValue, ofLength: 1) + Constants.test5.rawValue
-        let login = String.random(withCharactersInString: characters, ofLength: 2)
+        let login = String(characters.shuffled())
         initialState.launch()
         
         /// when
@@ -198,7 +198,7 @@ final class VenueUITests: BaseTest {
 
         let digits = String.random(withCharactersInString:Constants.digits.rawValue ,ofLength: 1)
         let characters = String.random(withCharactersInString: Constants.englishTwoCases.rawValue, ofLength: 5) + Constants.test6.rawValue
-        let login = String.random(withCharactersInString: characters + digits, ofLength: 7)
+        let login = String((characters + digits).shuffled())
         initialState.launch()
 
         /// when
@@ -425,7 +425,7 @@ final class VenueUITests: BaseTest {
     /// *2. Клавиатура скрыта.*
     /// *3. Кнопка находится в состоянии disabled.*
     ///
-    /// Ключ: oyh5fok2cqafudkbl
+    /// Ключ: c7f02stkaiqrxv8ww
     func testSVMR13() {
 
         /// given
@@ -562,5 +562,39 @@ final class VenueUITests: BaseTest {
             .verifyStackElementsExistence(to: true)
             .verifyContinueButton(to: false)
             .verifyKeyboardIntersectionWithStack(to: false)
+    }
+
+    /// Ввод 3 и более букв (включая символ _ ) в поле для ввода email
+    ///
+    /// **Действия:**
+    /// *1. Запускаем приложение на экране авторизации*
+    /// *2. Вводим в поле для ввода 3 и более букв (включая символ _ )*
+    ///
+    /// **Проверка:**
+    /// *1. Есть картинка с лого*
+    /// *2. Есть надпись под картинкой*
+    /// *3. Есть описание над полем ввода*
+    /// *4. Есть поле для ввода с плейсхолдером*
+    /// *5. Есть кнопка продолжения*
+    /// *6. Кнопка находится в состоянии disabled*
+    ///
+    /// Ключ: 7y5c0utjibftt72bj
+    func testSVMR18() {
+
+        /// given
+
+        let characters = String.random(withCharactersInString: Constants.englishTwoCases.rawValue, ofLength: Randoms.randomInt(3, 7)) + Constants.test18.rawValue
+        let login = String(characters.shuffled())
+        initialState.launch()
+
+        /// when
+
+        signInPage.typeLogin(login)
+
+        /// then
+
+        signInPage
+            .verifyStackElementsExistence(to: true)
+            .verifyContinueButton(to: false)
     }
 }
