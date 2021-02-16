@@ -4,7 +4,7 @@
 //
 //  Created by Дмитрий Савинов on 11.02.2021.
 //
-// swiftlint:disable all
+//  swiftlint:disable overridden_super_call
 
 import Foundation
 import XCTest
@@ -22,6 +22,11 @@ class BaseTest: XCTestCase {
     private var currentTestName: String {
         String(describing: type(of: self))
     }
+
+    private(set) lazy var initialState = InitialState(
+        app: XCUIApplication(),
+        testName: self.currentTestName
+    )
 
     // MARK: - XCTestCase
 

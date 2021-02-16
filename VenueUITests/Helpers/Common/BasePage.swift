@@ -8,7 +8,7 @@
 import Foundation
 
 class BasePage<Element: UIElement>: UIPage {
-    
+
     typealias UIElementType = Element
 
     // MARK: - Properties

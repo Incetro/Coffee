@@ -53,5 +53,5 @@ enum Constants: String {
     case test10 = "therun@ya."
     case test11 = "therun@ya.r"
 
-    case correctMail = "sajdhg.isuad@gamail.com"
+    case correctMail = "sajdhg.isuad@gmail.com"
 }

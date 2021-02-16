@@ -135,6 +135,7 @@
 		CB3F309C254B7E7C00311E5E /* AppDelegatesCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F309B254B7E7C00311E5E /* AppDelegatesCollector.swift */; };
 		CB3F30A1254B7EB300311E5E /* AppDelegateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3F30A0254B7EB300311E5E /* AppDelegateHandler.swift */; };
 		CB75048125D2A00C0083389F /* NSRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB75048025D2A00C0083389F /* NSRegularExpression.swift */; };
+		CB7D363F25DC132A0072E2FC /* InitialState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D363E25DC132A0072E2FC /* InitialState.swift */; };
 		CB8665FB25CD774000F252EA /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8665FA25CD774000F252EA /* UITextField.swift */; };
 		CB86660125CD81DD00F252EA /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8665FE25CD81DD00F252EA /* KeyboardObserver.swift */; };
 		CB86660225CD81DD00F252EA /* KeyboardObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8665FF25CD81DD00F252EA /* KeyboardObservable.swift */; };
@@ -370,6 +371,7 @@
 		CB3F30A0254B7EB300311E5E /* AppDelegateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateHandler.swift; sourceTree = "<group>"; };
 		CB75048025D2A00C0083389F /* NSRegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSRegularExpression.swift; sourceTree = "<group>"; };
 		CB7504DB25D450A70083389F /* VenueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VenueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB7D363E25DC132A0072E2FC /* InitialState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialState.swift; sourceTree = "<group>"; };
 		CB8665FA25CD774000F252EA /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		CB8665FE25CD81DD00F252EA /* KeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		CB8665FF25CD81DD00F252EA /* KeyboardObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObservable.swift; sourceTree = "<group>"; };
@@ -721,6 +723,7 @@
 			isa = PBXGroup;
 			children = (
 				CB24476F25D808F2001395EE /* UIPage.swift */,
+				CB7D363E25DC132A0072E2FC /* InitialState.swift */,
 				CB24477025D808F2001395EE /* BaseTest.swift */,
 				CB2447CA25DAE6A4001395EE /* BasePage.swift */,
 			);
@@ -2315,6 +2318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB7D363F25DC132A0072E2FC /* InitialState.swift in Sources */,
 				CB24477425D808F2001395EE /* XCUIElement.swift in Sources */,
 				CB94F49125D5AB6A006C506C /* UIElement.swift in Sources */,
 				CB24477225D808F2001395EE /* VenueUITests.swift in Sources */,

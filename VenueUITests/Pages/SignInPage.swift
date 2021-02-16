@@ -42,25 +42,6 @@ final class SignInPage: BasePage<AccessibilityHierarchy.SignIn> {
         scrollView(.scrollView)
     }
 
-    private var isAllStackElementsExist: Bool {
-        mailTextField.exists && continueButton.exists &&
-        welcomeLabel.exists && imageView.exists
-    }
-
-    private var isKeyboardIntersectWithStack: Bool {
-        let buttonEndPoint = scrollView.frame.minY + stackView.frame.height
-        let keyboardEndPoint = app.keyboards.element(boundBy: 0).frame.minY
-        return buttonEndPoint > keyboardEndPoint
-    }
-    
-    private var isContinueButtonWidthCorrect: Bool {
-        continueButton.frame.width <= Constants.UI.SignInButton.width.rawValue
-    }
-
-    private var isLoginTextFieldWidthCorrect: Bool {
-        continueButton.frame.width <= Constants.UI.MailTextField.width.rawValue
-    }
-
     // MARK: - Verification
 
     @discardableResult
@@ -71,19 +52,30 @@ final class SignInPage: BasePage<AccessibilityHierarchy.SignIn> {
 
     @discardableResult
     func verifyStackElementsExistence(to value: Bool) -> SignInPage {
-        expect(self.isAllStackElementsExist).to(equal(value))
+        let expectation = mailTextField.exists && continueButton.exists &&
+            welcomeLabel.exists && imageView.exists
+        expect(expectation).to(equal(value))
         return self
     }
 
     @discardableResult
     func verifyKeyboardIntersectionWithStack(to value: Bool) -> SignInPage {
-        expect(self.isKeyboardIntersectWithStack).toEventually(equal(value))
+        let buttonEndPoint = scrollView.frame.minY + stackView.frame.height
+        let keyboardEndPoint = app.keyboards.element(boundBy: 0).frame.minY
+        let expectation = buttonEndPoint > keyboardEndPoint
+        expect(expectation).toEventually(equal(value))
         return self
     }
 
     @discardableResult
     func verifyTextFieldEditing(to value: Bool) -> SignInPage {
-        expect(self.mailTextField.isSelected).to(equal(value))
+        expect(self.mailTextField.hasFocus).to(equal(value))
+        return self
+    }
+
+    @discardableResult
+    func verifyTextFieldEnable(to value: Bool) -> SignInPage {
+        expect(self.mailTextField.isEnabled).toEventually(equal(value))
         return self
     }
 
@@ -95,13 +87,24 @@ final class SignInPage: BasePage<AccessibilityHierarchy.SignIn> {
 
     @discardableResult
     func verifyContinueButtonWidth() -> SignInPage {
-        expect(self.isContinueButtonWidthCorrect).to(equal(true))
+        let expectaiton = continueButton.frame.width <=
+            Constants.UI.SignInButton.width.rawValue
+        expect(expectaiton).to(equal(true))
         return self
     }
 
     @discardableResult
     func verifyLoginTextFieldWidth() -> SignInPage {
-        expect(self.isContinueButtonWidthCorrect).to(equal(true))
+        let expectation = mailTextField.frame.width <=
+            Constants.UI.MailTextField.width.rawValue
+        expect(expectation).to(equal(true))
+        return self
+    }
+
+    @discardableResult
+    func verifyIndicatorExistance(to value: Bool) -> SignInPage {
+        expect(self.activityIndicator.exists)
+            .toEventually(equal(value), timeout: DispatchTimeInterval.seconds(5))
         return self
     }
 

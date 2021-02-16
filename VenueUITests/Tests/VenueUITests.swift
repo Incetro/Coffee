@@ -29,15 +29,16 @@ final class VenueUITests: BaseTest {
     /// Ключ: nyh5km4fu9p1w0nkm
     func testSVMR1() {
 
-        /// when
-        
-        signInPage.open()
+        /// given
+
+        initialState.launch()
 
         /// then
 
         signInPage
             .verifyStackElementsExistence(to: true)
             .verifyContinueButton(to: false)
+            .verifyTextFieldEditing(to: true)
     }
 
     /// Ввод 1-2 букв в поле для ввода email
@@ -61,12 +62,11 @@ final class VenueUITests: BaseTest {
 
         let characters = Constants.Letters.English.lowerCase.rawValue
         let login = String.random(withCharactersInString: characters, minimumLength: 1, maximumLength: 2)
+        initialState.launch()
 
         /// when
 
-        signInPage
-            .open()
-            .typeLogin(login)
+        signInPage.typeLogin(login)
 
         /// then
 
@@ -96,12 +96,11 @@ final class VenueUITests: BaseTest {
 
         let characters = Constants.digits.rawValue
         let login = String.random(withCharactersInString: characters, minimumLength: 1, maximumLength: 18)
+        initialState.launch()
 
         /// when
 
-        signInPage
-            .open()
-            .typeLogin(login)
+        signInPage.typeLogin(login)
 
         /// then
 
@@ -131,12 +130,11 @@ final class VenueUITests: BaseTest {
 
         let characters = Constants.specialSybols.rawValue
         let login = String.random(withCharactersInString: characters, minimumLength: 1, maximumLength: 18)
+        initialState.launch()
 
         /// when
 
-        signInPage
-            .open()
-            .typeLogin(login)
+        signInPage.typeLogin(login)
 
         /// then
 
@@ -166,12 +164,11 @@ final class VenueUITests: BaseTest {
 
         let characters = String.random(withCharactersInString: Constants.englishTwoCases.rawValue, ofLength: 1) + Constants.test5.rawValue
         let login = String.random(withCharactersInString: characters, ofLength: 2)
+        initialState.launch()
         
         /// when
 
-        signInPage
-            .open()
-            .typeLogin(login)
+        signInPage.typeLogin(login)
 
         /// then
 
@@ -202,12 +199,11 @@ final class VenueUITests: BaseTest {
         let digits = String.random(withCharactersInString:Constants.digits.rawValue ,ofLength: 1)
         let characters = String.random(withCharactersInString: Constants.englishTwoCases.rawValue, ofLength: 5) + Constants.test6.rawValue
         let login = String.random(withCharactersInString: characters + digits, ofLength: 7)
+        initialState.launch()
 
         /// when
 
-        signInPage
-            .open()
-            .typeLogin(login)
+        signInPage.typeLogin(login)
 
         /// then
 
@@ -236,12 +232,11 @@ final class VenueUITests: BaseTest {
         /// given
 
         let login = Constants.correctMail.rawValue
+        initialState.launch()
 
         /// when
 
-        signInPage
-            .open()
-            .typeLogin(login)
+        signInPage.typeLogin(login)
 
         /// then
 
@@ -270,12 +265,11 @@ final class VenueUITests: BaseTest {
         /// given
 
         let login = Constants.test8.rawValue
+        initialState.launch()
 
         /// when
 
-        signInPage
-            .open()
-            .typeLogin(login)
+        signInPage.typeLogin(login)
 
         /// then
 
@@ -304,12 +298,11 @@ final class VenueUITests: BaseTest {
         /// given
 
         let login = Constants.test9.rawValue
+        initialState.launch()
 
         /// when
 
-        signInPage
-            .open()
-            .typeLogin(login)
+        signInPage.typeLogin(login)
 
         /// then
 
@@ -338,12 +331,11 @@ final class VenueUITests: BaseTest {
         /// given
 
         let login = Constants.test10.rawValue
+        initialState.launch()
 
         /// when
 
-        signInPage
-            .open()
-            .typeLogin(login)
+        signInPage.typeLogin(login)
 
         /// then
 
@@ -372,12 +364,11 @@ final class VenueUITests: BaseTest {
         /// given
 
         let login = Constants.test11.rawValue
+        initialState.launch()
 
         /// when
 
-        signInPage
-            .open()
-            .typeLogin(login)
+        signInPage.typeLogin(login)
 
         /// then
 
@@ -390,7 +381,7 @@ final class VenueUITests: BaseTest {
     ///
     /// **Действия:**
     /// *1. Запускаем приложение на экране авторизации*
-    /// *2. Вводим в поле для ввода некорректный email (по типу therun@ya.ru)*
+    /// *2. Вводим в поле для ввода корректный email (по типу therun@ya.ru)*
     /// *3. Нажимаем на continue.*
     ///
     /// **Проверка:**
@@ -405,29 +396,22 @@ final class VenueUITests: BaseTest {
         /// given
 
         let login = Constants.correctMail.rawValue
+        initialState.launch()
 
         /// when
 
         signInPage
-            .open()
             .typeLogin(login)
             .tapContinueButton()
 
         /// then
 
-//        waitForElementToAppear(activityIndicator)
-//        print("!!!!\(activityIndicator.screenshot())")
-//        XCTAssert(activityIndicator.exists)
-//        print(app.debugDescription)
-
-//        XCTAssert(activityIndicator.exists)
-//        expect(self.activityIndicator.exists).toEventually(equal(true),timeout: DispatchTimeInterval.seconds(3))
-//        print("!!!!\(app.descendants(matching: .activityIndicator).count)")
         signInPage
             .verifyStackElementsExistence(to: true)
             .verifyContinueButton(to: false)
-            .verifyTextFieldEditing(to: false)
             .verifyKeyboard(to: false)
+//            .verifyIndicatorExistance(to: true)
+//            .verifyTextFieldEnable(to: false)
     }
 
     /// Скрытие клавиатуры по нажатию вне ее области отображения и не на поле ввода.
@@ -444,25 +428,27 @@ final class VenueUITests: BaseTest {
     /// Ключ: oyh5fok2cqafudkbl
     func testSVMR13() {
 
+        /// given
+
+        initialState.launch()
+
         /// when
 
-        signInPage
-            .open()
-            .tapWelcomeLabel()
+        signInPage.tapWelcomeLabel()
 
         /// then
         
         signInPage
             .verifyContinueButton(to: false)
-            .verifyTextFieldEditing(to: false)
             .verifyKeyboard(to: false)
+            .verifyTextFieldEditing(to: false)
     }
 
-    /// Скрытие клавиатуры по нажатию вне ее области отображения и не на поле ввода.
+    /// Скрытие клавиатуры по нажатию на enter.
     ///
     /// **Действия:**
     /// *1. Запускаем приложение на экране авторизации*
-    /// *2. Нажимаем вне ее области отображения и не на поле ввода.*
+    /// *2. Нажимаем на клавишу enter клавиатуры.*
     ///
     /// **Проверка:**
     /// *1. Текстовое поле в состоянии is not editing.*                                                              *
@@ -472,11 +458,13 @@ final class VenueUITests: BaseTest {
     /// Ключ: oyh5fok2cqafudkbl
     func testSVMR14() {
 
+        /// given
+
+        initialState.launch()
+
         /// when
 
-        signInPage
-            .open()
-            .tapKeyboardButton(.enter)
+        signInPage.tapKeyboardButton(.enter)
 
         /// then
 
@@ -493,24 +481,27 @@ final class VenueUITests: BaseTest {
     /// *2. Нажимаем на поле ввода.*
     ///
     /// **Проверка:**
-    /// *1. Текстовое поле в состоянии is not editing.*
+    /// *1. Текстовое поле в состоянии is editing.*
     /// *2. Клавиатура не скрыта.*
     /// *3. Кнопка находится в состоянии disabled.*
     ///
     /// Ключ: f9ufkfon6x866byuy
     func testSVMR15() {
 
+        /// given
+
+        initialState.launch()
+
+
         /// when
 
-        signInPage
-            .open()
-            .tapLogin()
+        signInPage.tapLogin()
 
         /// then
 
         signInPage
             .verifyContinueButton(to: false)
-            .verifyTextFieldEditing(to: false)
+            .verifyTextFieldEditing(to: true)
             .verifyKeyboard(to: true)
     }
 
@@ -531,9 +522,9 @@ final class VenueUITests: BaseTest {
     /// Ключ: f9ufkfon6x866byuy
     func testSVMR16() {
 
-        /// when
+        /// given
 
-        signInPage.open()
+        initialState.launch()
 
         /// then
 
@@ -561,9 +552,9 @@ final class VenueUITests: BaseTest {
     /// Ключ: nmo0b4mbg3fcxz0h3
     func testSVMR17() {
 
-        /// when
+        /// given
 
-        signInPage.open()
+        initialState.launch()
 
         /// then
 
