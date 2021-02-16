@@ -339,7 +339,7 @@ extension SignInViewController {
     /// Mark all alements as testable views
     func testify() {
         testify(welcomeLabel, using: .welcomeLabel)
-        testify(loginTextField, using: .mailTextField)
+        testify(loginTextField, using: .loginTextField)
         testify(headerImageView, using: .headerImageView)
         testify(signInButton, using: .signInButton)
         testify(stackView, using: .stackView)

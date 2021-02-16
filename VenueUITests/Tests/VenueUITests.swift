@@ -495,7 +495,7 @@ final class VenueUITests: BaseTest {
 
         /// when
 
-        signInPage.tapLogin()
+        signInPage.tapLoginTextField()
 
         /// then
 

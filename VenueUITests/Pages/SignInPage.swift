@@ -14,8 +14,8 @@ final class SignInPage: BasePage<AccessibilityHierarchy.SignIn> {
 
     // MARK: - Private
 
-    private var mailTextField: XCUIElement {
-        textField(.mailTextField)
+    private var loginTextField: XCUIElement {
+        textField(.loginTextField)
     }
 
     private var continueButton: XCUIElement {
@@ -52,7 +52,7 @@ final class SignInPage: BasePage<AccessibilityHierarchy.SignIn> {
 
     @discardableResult
     func verifyStackElementsExistence(to value: Bool) -> SignInPage {
-        let expectation = mailTextField.exists && continueButton.exists &&
+        let expectation = loginTextField.exists && continueButton.exists &&
             welcomeLabel.exists && imageView.exists
         expect(expectation).to(equal(value))
         return self
@@ -69,13 +69,13 @@ final class SignInPage: BasePage<AccessibilityHierarchy.SignIn> {
 
     @discardableResult
     func verifyTextFieldEditing(to value: Bool) -> SignInPage {
-        expect(self.mailTextField.hasFocus).to(equal(value))
+        expect(self.loginTextField.hasFocus).to(equal(value))
         return self
     }
 
     @discardableResult
     func verifyTextFieldEnable(to value: Bool) -> SignInPage {
-        expect(self.mailTextField.isEnabled).toEventually(equal(value))
+        expect(self.loginTextField.isEnabled).toEventually(equal(value))
         return self
     }
 
@@ -95,7 +95,7 @@ final class SignInPage: BasePage<AccessibilityHierarchy.SignIn> {
 
     @discardableResult
     func verifyLoginTextFieldWidth() -> SignInPage {
-        let expectation = mailTextField.frame.width <=
+        let expectation = loginTextField.frame.width <=
             Constants.UI.MailTextField.width.rawValue
         expect(expectation).to(equal(true))
         return self
@@ -112,7 +112,7 @@ final class SignInPage: BasePage<AccessibilityHierarchy.SignIn> {
 
     @discardableResult
     func typeLogin(_ login: String) -> SignInPage {
-        mailTextField.typeText(login)
+        loginTextField.typeText(login)
         return self
     }
 
@@ -135,8 +135,8 @@ final class SignInPage: BasePage<AccessibilityHierarchy.SignIn> {
     }
 
     @discardableResult
-    func tapLogin() -> SignInPage {
-        mailTextField.tap()
+    func tapLoginTextField() -> SignInPage {
+        loginTextField.tap()
         return self
     }
 }
