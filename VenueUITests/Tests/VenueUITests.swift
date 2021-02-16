@@ -411,7 +411,7 @@ final class VenueUITests: BaseTest {
             .verifyContinueButton(to: false)
             .verifyKeyboard(to: false)
 //            .verifyIndicatorExistance(to: true)
-//            .verifyTextFieldEnable(to: false)
+            .verifyTextFieldEnable(to: false)
     }
 
     /// Скрытие клавиатуры по нажатию вне ее области отображения и не на поле ввода.
@@ -421,7 +421,7 @@ final class VenueUITests: BaseTest {
     /// *2. Нажимаем вне ее области отображения и не на поле ввода.*
     ///
     /// **Проверка:**
-    /// *1. Текстовое поле в состоянии is not editing.*                                                              *
+    /// *1. Текстовое поле в состоянии is not editing.*
     /// *2. Клавиатура скрыта.*
     /// *3. Кнопка находится в состоянии disabled.*
     ///

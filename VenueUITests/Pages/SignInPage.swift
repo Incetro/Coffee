@@ -75,7 +75,7 @@ final class SignInPage: BasePage<AccessibilityHierarchy.SignIn> {
 
     @discardableResult
     func verifyTextFieldEnable(to value: Bool) -> SignInPage {
-        expect(self.loginTextField.isEnabled).toEventually(equal(value))
+        expect(self.loginTextField.isEnabled).to(equal(value))
         return self
     }
 

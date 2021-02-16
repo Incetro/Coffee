@@ -37,7 +37,6 @@ final class SignInViewController: ViewController {
     /// Phone text field
     private lazy var loginTextField = UITextField().then {
         $0.keyboardType = .emailAddress
-        $0.delegate = self
         $0.addLeftSpacing(LayoutConstants.loginTextFieldLeftSpacing)
         let activityIndicatorWrapper = UIView(
             frame: .init(
@@ -242,24 +241,16 @@ extension SignInViewController: SignInViewInput {
 
     func startIndication() {
         signInButton.isEnabled = false
+        loginTextField.isEnabled = false
         loginTextField.rightViewMode = .always
         activityIndicator.startAnimating()
     }
 
     func stopIndication() {
         signInButton.isEnabled = true
+        loginTextField.isEnabled = true
         loginTextField.rightViewMode = .never
         activityIndicator.stopAnimating()
-    }
-}
-
-// MARK: - UITextFieldDelegate
-
-extension SignInViewController: UITextFieldDelegate {
-
-    internal func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        guard !activityIndicator.isAnimating else { return false }
-        return true
     }
 }
 

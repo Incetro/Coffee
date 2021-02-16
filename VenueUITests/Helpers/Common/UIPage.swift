@@ -214,6 +214,7 @@ extension UIPage {
         let expectation = uiTest.expectation(for: existsPredicate, evaluatedWith: element)
         _ = XCTWaiter.wait(for: [expectation], timeout: timeout)
         expectation.fulfill()
+        XCTAssertEqual(element.exists, true)
     }
 
     // MARK: - Common
